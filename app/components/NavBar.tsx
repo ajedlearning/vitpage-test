@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const NavBar = () => {
@@ -68,49 +69,49 @@ const NavBar = () => {
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                <a
-                                    href="#"
+                                <Link
+                                    href="/"
                                     className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
                                     aria-current="page"
                                 >
                                     INICIO
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/nosotros"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     NOSOTROS
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/productos"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     PRODUCTOS
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/noticias"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     NOTICIAS
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/soporte"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     SOPORTE
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/ventas"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     VENTAS
-                                </a>
-                                <a
-                                    href="#"
+                                </Link>
+                                <Link
+                                    href="/contacto"
                                     className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
                                 >
                                     CONTACTO
-                                </a>
+                                </Link>
                             </div>
                         </div>
                     </div>
