@@ -75,13 +75,16 @@ const Carousel = () => {
       data-twe-carousel-item=""
       style={{ backfaceVisibility: "hidden" }}
     >
-      <Image
+      
+        <Image
         src="/images/carousel/2.jpg"
         className="block w-full"
         alt="..."
         height={370}
         width={1300}
       />
+  
+      
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
         <h5 className="text-xl">Second slide label</h5>
         <p>Some representative placeholder content for the second slide.</p>

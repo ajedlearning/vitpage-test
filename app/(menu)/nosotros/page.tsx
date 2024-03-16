@@ -1,9 +1,14 @@
+import About from "@/app/components/About"
 
 
-const About = () => {
+
+const Aboutus = () => {
   return (
-    <div>Bienvenidos a Nosotros</div>
+   <div className="pt-28">
+    <About />
+   </div>
+
   )
 }
 
-export default About
+export default Aboutus

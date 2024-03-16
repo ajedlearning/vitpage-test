@@ -1,9 +1,28 @@
+'use client'
+import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const NavBar = () => {
+    const [scroll, setScroll] = useState(false)
+
+    // here we detect scroll to cahnge de nav's background color
+    const detectScroll = () => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 0) {
+                setScroll(true);
+            } else {
+                setScroll(false);
+            }
+        });
+    };
+
+    useEffect(() => {
+        detectScroll();
+    }, [])
+    
     return (
-        <nav className="bg-gray-800">
+        <nav className={`${scroll ? 'bg-white' : 'bg-transparent' } fixed z-10  w-full p-6`}>
             <div className="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div className="relative flex h-16 items-center justify-between">
 
@@ -60,55 +79,59 @@ const NavBar = () => {
 
                     <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-between">
                         <div className="flex flex-shrink-0 items-center">
-                            <img
+                            <Image
                                 className="h-8 w-auto"
-                                src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                                alt="Your Company"
+                                src="/images/logo-on.png"
+                                alt="Logo de Vit"
+                                height={800}
+                                width={800}
                             />
+
+
                         </div>
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                                 <Link
                                     href="/"
-                                    className="bg-gray-900 text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={`${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 rounded-md px-3 py-2 text-sm font-medium `}
                                     aria-current="page"
                                 >
                                     INICIO
                                 </Link>
                                 <Link
                                     href="/nosotros"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     NOSOTROS
                                 </Link>
                                 <Link
                                     href="/productos"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     PRODUCTOS
                                 </Link>
                                 <Link
                                     href="/noticias"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     NOTICIAS
                                 </Link>
                                 <Link
                                     href="/soporte"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     SOPORTE
                                 </Link>
                                 <Link
                                     href="/ventas"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     VENTAS
                                 </Link>
                                 <Link
                                     href="/contacto"
-                                    className="text-gray-300 hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium"
+                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     CONTACTO
                                 </Link>
@@ -116,7 +139,7 @@ const NavBar = () => {
                         </div>
                     </div>
 
-                    
+
 
                 </div>
             </div>
@@ -125,7 +148,7 @@ const NavBar = () => {
 
 
 
-            
+
             {/* Mobile menu, show/hide based on menu state. */}
             <div className="sm:hidden" id="mobile-menu">
                 <div className="space-y-1 px-2 pb-3 pt-2">
