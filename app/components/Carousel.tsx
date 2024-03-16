@@ -1,4 +1,5 @@
 "use client";
+import Image from "next/image";
 import { useEffect } from "react";
 
 const Carousel = () => {
@@ -55,11 +56,14 @@ const Carousel = () => {
       data-twe-carousel-item=""
       style={{ backfaceVisibility: "hidden" }}
     >
-      <img
-        src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(15).jpg"
+      <Image
+        src="/images/carousel/2.jpg"
         className="block w-full"
         alt="..."
+        height={370}
+        width={1300}
       />
+      
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
         <h5 className="text-xl">First slide label</h5>
         <p>Some representative placeholder content for the first slide.</p>
@@ -71,10 +75,12 @@ const Carousel = () => {
       data-twe-carousel-item=""
       style={{ backfaceVisibility: "hidden" }}
     >
-      <img
-        src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(22).jpg"
+      <Image
+        src="/images/carousel/2.jpg"
         className="block w-full"
         alt="..."
+        height={370}
+        width={1300}
       />
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
         <h5 className="text-xl">Second slide label</h5>
@@ -87,10 +93,12 @@ const Carousel = () => {
       data-twe-carousel-item=""
       style={{ backfaceVisibility: "hidden" }}
     >
-      <img
-        src="https://tecdn.b-cdn.net/img/Photos/Slides/img%20(23).jpg"
+      <Image
+        src="/images/carousel/3.jpg"
         className="block w-full"
         alt="..."
+        height={370}
+        width={1300}
       />
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
         <h5 className="text-xl">Third slide label</h5>
