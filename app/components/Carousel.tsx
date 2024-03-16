@@ -14,7 +14,7 @@ const Carousel = () => {
   return (
     <div
   id="carouselExampleCaptions"
-  className="relative"
+  className="relative hidden md:block"
   data-twe-carousel-init=""
   data-twe-ride="carousel"
 >

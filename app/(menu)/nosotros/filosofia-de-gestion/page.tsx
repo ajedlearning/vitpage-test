@@ -3,7 +3,7 @@ import React from 'react'
 
 function page() {
     return (
-        <div className="pt-28">
+        <div className="md:pt-28">
             <Philosophy />
         </div>
     )

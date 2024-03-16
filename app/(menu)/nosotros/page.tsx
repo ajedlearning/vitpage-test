@@ -4,7 +4,7 @@ import About from "@/app/components/About"
 
 const Aboutus = () => {
   return (
-   <div className="pt-28">
+   <div className="md:pt-28">
     <About />
    </div>
 
