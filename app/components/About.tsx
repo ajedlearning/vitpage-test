@@ -16,7 +16,7 @@ const About = () => {
                     <br />
                     <p className="text-sm md:text-base">¡Seguimos innovando e impulsando el desarrollo tecnológico nacional!</p>
             </article>
-            <article className="md:w-[100%] hidden md:inline p-0"><Image src='/images/resena.jpg' height={1000} width={1000} alt="Imagen de nosotros" /></article>
+            <article className="md:w-[100%] hidden md:inline p-0 "><Image src='/images/resena.jpg' height={1000} width={1000} alt="Imagen de nosotros" /></article>
         </section>
     )
 }

@@ -65,8 +65,8 @@ const Carousel = () => {
       />
       
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 className="text-xl">First slide label</h5>
-        <p>Some representative placeholder content for the first slide.</p>
+        {/* <h5 className="text-xl">First slide label</h5> */}
+        {/* <p>Some representative placeholder content for the first slide.</p> */}
       </div>
     </div>
     {/*Second item*/}
@@ -86,8 +86,8 @@ const Carousel = () => {
   
       
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 className="text-xl">Second slide label</h5>
-        <p>Some representative placeholder content for the second slide.</p>
+        {/* <h5 className="text-xl">Second slide label</h5> */}
+        {/* <p>Some representative placeholder content for the second slide.</p> */}
       </div>
     </div>
     {/*Third item*/}
@@ -104,8 +104,8 @@ const Carousel = () => {
         width={1300}
       />
       <div className="absolute inset-x-[15%] bottom-5 hidden py-5 text-center text-white md:block">
-        <h5 className="text-xl">Third slide label</h5>
-        <p>Some representative placeholder content for the third slide.</p>
+        {/* <h5 className="text-xl">Third slide label</h5> */}
+        {/* <p>Some representative placeholder content for the third slide.</p> */}
       </div>
     </div>
   </div>
