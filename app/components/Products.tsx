@@ -1,6 +1,5 @@
 import React from 'react'
 import NavBarProducts from './NavBarProducts'
-import ProductDetails from './ProductDetails'
 
 const Products = () => {
     return (
@@ -8,7 +7,6 @@ const Products = () => {
                 <h2 className=" text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center ">PRODUCTOS</h2>
 
             <NavBarProducts />
-            <ProductDetails/>
 
         </div>
     )
