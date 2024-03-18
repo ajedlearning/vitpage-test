@@ -4,7 +4,7 @@ import React from 'react'
 function Philosophy() {
     return (
         <section className="flex w-full pt-24 md:pt-0">
-            <article className="hidden md:inline md:w-[100%] border p-0"><Image src='/images/philosofy.jpg' height={1000} width={1000} alt="Imagen de nosotros" /></article>
+            <article className="hidden md:inline md:w-[100%] p-0"><Image src='/images/philosofy.jpg' height={1000} width={1000} alt="Imagen de nosotros" /></article>
             <article className="w-[100%] md:w-[100%] pl-9 pt-4 pr-6 md:pl-20 md:pt-6 md:pr-20 text-justify bg-white">
 
                 <h2 className="mb-6 text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center border-l-8 border-red-700">FILOSOFÍA DE GESTIÓN</h2>
