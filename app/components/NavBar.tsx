@@ -94,44 +94,44 @@ const NavBar = () => {
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                                 <Link
                                     href="/"
-                                    className={`${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 rounded-md px-3 py-2 text-sm font-medium `}
+                                    className={`${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 rounded-md px-3 py-2 text-sm font-medium `}
                                     aria-current="page"
                                 >
                                     INICIO
                                 </Link>
                                 <Link
                                     href="/nosotros"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     NOSOTROS
                                 </Link>
                                 <Link
                                     href="/productos"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     PRODUCTOS
                                 </Link>
                                 <Link
                                     href="/noticias"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     NOTICIAS
                                 </Link>
                                 <Link
                                     href="/soporte"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     SOPORTE
                                 </Link>
                                 <Link
                                     href="/ventas"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     VENTAS
                                 </Link>
                                 <Link
                                     href="/contacto"
-                                    className={` ${scroll ? 'text-black' : 'text-white'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
+                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
                                 >
                                     CONTACTO
                                 </Link>

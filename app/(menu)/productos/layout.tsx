@@ -1,4 +1,4 @@
-import NavBarProducts from "@/app/components/NavBarProducts";
+import NavBarProducts2 from "@/app/components/NavBarProducts2";
 
 
 export default function ProductLayout({
@@ -9,7 +9,7 @@ export default function ProductLayout({
   return (
    <div className="pt-28">
     <h2 className=" text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center ">PRODUCTOS</h2>
-    <NavBarProducts/>
+    <NavBarProducts2/> 
     {children}
    </div>
   );

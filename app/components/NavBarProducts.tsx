@@ -28,7 +28,7 @@ const products = [
     name: 'SERVIDORES',
     image: '/images/servidores.webp',
   },
-]
+] 
 
 interface Prod {
   id: string,
