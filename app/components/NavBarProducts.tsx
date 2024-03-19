@@ -1,28 +1,62 @@
 'use client'
-import Link from 'next/link'
 import { useState } from 'react'
 import ProductDetails from './ProductDetails'
 
-function NavBarProducts() {
-  const [show, setShow] = useState(false)
+const products = [
+  {
+    id: '1',
+    name: 'ESCRITORIO',
+    image: '/images/desktop.jpg',
+  },
+  {
+    id: '2',
+    name: 'PORTATILES',
+    image: '/images/portatiles.webp',
+  },
+  {
+    id: '3',
+    name: 'MINI COMPUTADOR',
+    image: '/images/minicomputador.webp',
+  },
+  {
+    id: '4',
+    name: 'TABLETAS',
+    image: '/images/tabletas.webp',
+  },
+  {
+    id: '5',
+    name: 'SERVIDORES',
+    image: '/images/servidores.webp',
+  },
+]
 
-  const myFunction = (e: React.MouseEvent<HTMLButtonElement>) => {
-    const id = e.currentTarget.id;
-    alert(`Button ${id} clicked!`);
-    setShow(!show);
+interface Prod {
+  id: string,
+  name: string,
+  image: string,
+}
+
+function NavBarProducts() {
+  const [mark, setMark] = useState<string>('')
+  const [productInfo, setProductInfo] = useState<Prod>({ id: '1', name: 'ESCRITORIO', image: '/images/desktop.jpg' })
+
+  const changeProduct = (e: React.MouseEvent<HTMLButtonElement>) => {
+    const idPro = e.currentTarget.id;
+    const result = products.find((product) => product.id === idPro);
+    setProductInfo(result || { id: '1', name: 'ESCRITORIO', image: '/images/desktop.jpg' })
+    setMark(result?.id || '')
   }
 
   return (
     <>
       <nav className='flex flex-col text-sm md:flex-row justify-between md:w-[80%] w-[50%] md:mx-auto p-6 font-bold'>
-        <button onClick={myFunction} id='1' className='hover:border-black rounded-md p-2 border border-transparent'>ESCRITORIO</button>
-        <button onClick={myFunction} id='2' className='hover:border-black rounded-md p-2 border border-transparent'>PORTATILES</button>
-        <button onClick={myFunction} id='3' className='hover:border-black rounded-md p-2 border border-transparent'>MINI COMPUTADOR</button>
-        <button onClick={myFunction} id='4' className='hover:border-black rounded-md p-2 border border-transparent'>TABLETAS</button>
-        <button onClick={myFunction} id='5' className='hover:border-black rounded-md p-2 border border-transparent'>SERVIDORES</button>
+        {products.map((prod) => (
+          <button onClick={changeProduct} id={prod.id} key={prod.id} className={`${mark === prod.id ? 'border-black': '' } hover:border-black rounded-md p-2 border border-transparent`}>{prod.name}</button>
+        ))}
+
       </nav>
 
-      {show && <ProductDetails />}
+      <ProductDetails product={productInfo} />
 
 
 
