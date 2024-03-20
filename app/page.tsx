@@ -16,9 +16,9 @@ export default function Home() {
       <Philosophy />
       <AboutImage />
       <HomeVideo />
-     
 
-      
+
+
 
     </>
 
