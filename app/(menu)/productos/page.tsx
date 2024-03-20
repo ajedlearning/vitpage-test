@@ -1,11 +1,9 @@
 import React from 'react'
 
-const Product = () => {
+const page = () => {
   return (
-    <div className="md:pt-28">
-      
-    </div>
+    <div>Products</div>
   )
 }
 
-export default Product
+export default page

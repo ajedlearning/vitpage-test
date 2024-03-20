@@ -5,17 +5,23 @@ import React, { useState, useEffect } from 'react'
 
 const NavBar = () => {
     const [scroll, setScroll] = useState(false)
+    const [isMenuOpen, setIsMenuOpen] = useState(false)
 
     // here we detect scroll to cahnge de nav's background color
     const detectScroll = () => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 0) {
                 setScroll(true);
+                setIsMenuOpen(false)
             } else {
                 setScroll(false);
             }
         });
     };
+
+    const openMenuMobile = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     useEffect(() => {
         detectScroll();
@@ -33,6 +39,7 @@ const NavBar = () => {
                             className="relative inline-flex items-center justify-center rounded-md p-2 text-gray-400 hover:bg-gray-700 hover:text-white focus:outline-none focus:ring-2 focus:ring-inset focus:ring-white"
                             aria-controls="mobile-menu"
                             aria-expanded="false"
+                            onClick={openMenuMobile}
                         >
                             <span className="absolute -inset-0.5" />
                             <span className="sr-only">Open main menu</span>
@@ -150,49 +157,62 @@ const NavBar = () => {
 
 
             {/* Mobile menu, show/hide based on menu state. */}
-            <div className="hidden" id="mobile-menu">
+            <div className={`${isMenuOpen ? 'block' : 'hidden'} bg-slate-400 `} id="mobile-menu">
                 <div className="space-y-1 px-2 pb-3 pt-2">
                     {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
                     <Link
                         href="/"
                         className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
                         aria-current="page"
+                        onClick={openMenuMobile}
                     >
                         INICIO
                     </Link>
                     <Link
                         href="/nosotros"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+                    
                     >
                         NOSOTROS
                     </Link>
                     <Link
                         href="/productos"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+
                     >
                         PRDUCTOS
                     </Link>
                     <Link
                         href="/noticias"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+                        
                     >
                         NOTICIAS
                     </Link>
                     <Link
                         href="/soporte"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+                        
                     >
                         SOPORTE
                     </Link>
                     <Link
                         href="/ventas"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+
                     >
                         VENTAS
                     </Link>
                     <Link
                         href="/contacto"
                         className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
+                        onClick={openMenuMobile}
+
                     >
                         CONTACTO
                     </Link>

@@ -34,7 +34,7 @@ const products = [
   ] 
 const NavBarProducts2 = () => {
   return (
-    <nav className='flex flex-col text-sm md:flex-row justify-between md:w-[80%] w-[50%] md:mx-auto p-6 font-bold'>
+    <nav className='flex flex-col text-sm md:flex-row justify-between md:w-[80%] w-[70%] md:mx-auto p-4 md:p-6 font-bold'>
     {products.map((prod) => (
       <Link href={prod.link}  id={prod.id} key={prod.id} className={`hover:border-black rounded-md p-2 border border-transparent`}>{prod.name}</Link>
     ))}
