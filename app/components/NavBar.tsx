@@ -2,10 +2,44 @@
 import Image from 'next/image'
 import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
+import clsx from 'clsx';
+import { usePathname } from 'next/navigation';
+
+const links = [
+    {
+        name: 'INICIO',
+        href: '/',
+    },
+    {
+        name: 'NOSOTROS',
+        href: '/nosotros',
+    },
+    {
+        name: 'PRODUCTOS',
+        href: '/productos',
+    },
+    {
+        name: 'NOTICIAS',
+        href: '/noticias',
+    },
+    {
+        name: 'SOPORTE',
+        href: '/soporte',
+    },
+    {
+        name: 'VENTAS',
+        href: '/ventas',
+    },
+    {
+        name: 'CONTACTO',
+        href: '/contacto',
+    }
+]
 
 const NavBar = () => {
     const [scroll, setScroll] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
+    const pathname = usePathname();
 
     // here we detect scroll to cahnge de nav's background color
     const detectScroll = () => {
@@ -99,49 +133,19 @@ const NavBar = () => {
                         <div className="hidden sm:ml-6 sm:block">
                             <div className="flex space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                                <Link
-                                    href="/"
-                                    className={`${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 rounded-md px-3 py-2 text-sm font-medium `}
-                                    aria-current="page"
-                                >
-                                    INICIO
-                                </Link>
-                                <Link
-                                    href="/nosotros"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    NOSOTROS
-                                </Link>
-                                <Link
-                                    href="/productos"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    PRODUCTOS
-                                </Link>
-                                <Link
-                                    href="/noticias"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    NOTICIAS
-                                </Link>
-                                <Link
-                                    href="/soporte"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    SOPORTE
-                                </Link>
-                                <Link
-                                    href="/ventas"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    VENTAS
-                                </Link>
-                                <Link
-                                    href="/contacto"
-                                    className={` ${scroll ? 'text-black' : 'text-gray-400'} hover:bg-gray-700 hover:text-white rounded-md px-3 py-2 text-sm font-medium`}
-                                >
-                                    CONTACTO
-                                </Link>
+
+                                {links.map((ln) => (
+
+                                    <Link
+                                        href={ln.href}
+                                        className={clsx('hover:text-blue-600 rounded-md px-3 py-2 text-sm font-medium', { 'text-black': scroll, 'text-gray-400': !scroll, 'text-blue-600': pathname=== ln.href})}
+                                        aria-current="page"
+                                        key={ln.name}
+                                    >
+                                        {ln.name}
+                                    </Link>
+                                ))}
+
                             </div>
                         </div>
                     </div>
@@ -159,63 +163,21 @@ const NavBar = () => {
             {/* Mobile menu, show/hide based on menu state. */}
             <div className={`${isMenuOpen ? 'block' : 'hidden'} bg-slate-400 `} id="mobile-menu">
                 <div className="space-y-1 px-2 pb-3 pt-2">
-                    {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
-                    <Link
-                        href="/"
-                        className="bg-gray-900 text-white block rounded-md px-3 py-2 text-base font-medium"
-                        aria-current="page"
-                        onClick={openMenuMobile}
-                    >
-                        INICIO
-                    </Link>
-                    <Link
-                        href="/nosotros"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
-                    
-                    >
-                        NOSOTROS
-                    </Link>
-                    <Link
-                        href="/productos"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
 
-                    >
-                        PRDUCTOS
-                    </Link>
-                    <Link
-                        href="/noticias"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
-                        
-                    >
-                        NOTICIAS
-                    </Link>
-                    <Link
-                        href="/soporte"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
-                        
-                    >
-                        SOPORTE
-                    </Link>
-                    <Link
-                        href="/ventas"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
 
-                    >
-                        VENTAS
-                    </Link>
-                    <Link
-                        href="/contacto"
-                        className="text-gray-300 hover:bg-gray-700 hover:text-white block rounded-md px-3 py-2 text-base font-medium"
-                        onClick={openMenuMobile}
+                    {links.map((ln) => (
 
-                    >
-                        CONTACTO
-                    </Link>
+                        <Link
+                            href={ln.href}
+                            className="text-white block rounded-md px-3 py-2 text-base font-medium"
+                            aria-current="page"
+                            key={ln.name}
+                            onClick={openMenuMobile}
+
+                        >
+                            {ln.name}
+                        </Link>
+                    ))}
 
                 </div>
             </div>
