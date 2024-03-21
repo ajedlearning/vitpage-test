@@ -1,45 +1,16 @@
 'use client'
 import Image from 'next/image'
-import Link from 'next/link'
 import React, { useState, useEffect } from 'react'
-import clsx from 'clsx';
-import { usePathname } from 'next/navigation';
+import { LinkMobileNavbar, LinkNavbar } from './LinkNavbars';
 
-const links = [
-    {
-        name: 'INICIO',
-        href: '/',
-    },
-    {
-        name: 'NOSOTROS',
-        href: '/nosotros',
-    },
-    {
-        name: 'PRODUCTOS',
-        href: '/productos',
-    },
-    {
-        name: 'NOTICIAS',
-        href: '/noticias',
-    },
-    {
-        name: 'SOPORTE',
-        href: '/soporte',
-    },
-    {
-        name: 'VENTAS',
-        href: '/ventas',
-    },
-    {
-        name: 'CONTACTO',
-        href: '/contacto',
-    }
-]
 
 const NavBar = () => {
     const [scroll, setScroll] = useState(false)
     const [isMenuOpen, setIsMenuOpen] = useState(false)
-    const pathname = usePathname();
+
+    const openMenuMobile = () => {
+        setIsMenuOpen(!isMenuOpen)
+    }
 
     // here we detect scroll to cahnge de nav's background color
     const detectScroll = () => {
@@ -53,9 +24,7 @@ const NavBar = () => {
         });
     };
 
-    const openMenuMobile = () => {
-        setIsMenuOpen(!isMenuOpen)
-    }
+
 
     useEffect(() => {
         detectScroll();
@@ -134,17 +103,7 @@ const NavBar = () => {
                             <div className="flex space-x-4">
                                 {/* Current: "bg-gray-900 text-white", Default: "text-gray-300 hover:bg-gray-700 hover:text-white" */}
 
-                                {links.map((ln) => (
-
-                                    <Link
-                                        href={ln.href}
-                                        className={clsx('hover:text-blue-600 rounded-md px-3 py-2 text-sm font-medium', { 'text-black': scroll, 'text-gray-400': !scroll, 'text-blue-600': pathname=== ln.href})}
-                                        aria-current="page"
-                                        key={ln.name}
-                                    >
-                                        {ln.name}
-                                    </Link>
-                                ))}
+                                <LinkNavbar />
 
                             </div>
                         </div>
@@ -155,30 +114,10 @@ const NavBar = () => {
                 </div>
             </div>
 
-
-
-
-
-
             {/* Mobile menu, show/hide based on menu state. */}
             <div className={`${isMenuOpen ? 'block' : 'hidden'} bg-slate-400 `} id="mobile-menu">
                 <div className="space-y-1 px-2 pb-3 pt-2">
-
-
-                    {links.map((ln) => (
-
-                        <Link
-                            href={ln.href}
-                            className="text-white block rounded-md px-3 py-2 text-base font-medium"
-                            aria-current="page"
-                            key={ln.name}
-                            onClick={openMenuMobile}
-
-                        >
-                            {ln.name}
-                        </Link>
-                    ))}
-
+                    <LinkMobileNavbar onClickButton={openMenuMobile} />
                 </div>
             </div>
         </nav>
