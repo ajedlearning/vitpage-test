@@ -1,3 +1,4 @@
+'use client'
 import Link from 'next/link'
 import clsx from 'clsx'
 import { usePathname } from 'next/navigation';
@@ -38,15 +39,15 @@ const links = [
 ]
 export const LinkNavbar = () => {
   const pathname = usePathname();
-
+ console.log(pathname)
   return (
     <>
       {links.map((ln) => (
 
         <Link
           href={ln.href}
-          className={clsx('hover:text-blue-600 text-gray-500 rounded-md px-3 py-2 text-sm font-medium', {'text-blue-600': pathname === ln.href })}
-          aria-current="page"
+          className={clsx('hover:text-blue-600 rounded-md px-3 py-2 text-sm font-medium', {'text-blue-600': pathname === ln.href , 'text-gray-500':pathname!== ln.href })}
+          
           key={ln.name}
         >
           {ln.name}

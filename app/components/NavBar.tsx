@@ -12,7 +12,7 @@ const NavBar = () => {
         setIsMenuOpen(!isMenuOpen)
     }
 
-    // here we detect scroll to cahnge de nav's background color
+    // here we detect scroll to change de nav's background color
     const detectScroll = () => {
         window.addEventListener("scroll", () => {
             if (window.scrollY > 0) {
