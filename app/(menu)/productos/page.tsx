@@ -1,8 +1,13 @@
-import React from 'react'
+import ShowProducts from '@/app/components/ShowProducts'
 
-const page = () => {
+import {getProducts} from '@/app/lib/data'
+
+const page = async () => {
+  const products = await getProducts()
   return (
-    <div>Products</div>
+    <>
+    <ShowProducts products={products}/>
+    </>
   )
 }
 

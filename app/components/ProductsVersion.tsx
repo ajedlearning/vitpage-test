@@ -1,7 +1,11 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion';
-const ProductsVersion = () => {
+
+
+
+
+const ProductsVersion = ({ nameVersion }: { nameVersion: string }) => {
     const [isOpen, setIsOpen] = useState(false);
     const openWindow = () => {
         setIsOpen(!isOpen)
@@ -9,7 +13,7 @@ const ProductsVersion = () => {
     return (
         <div className='mb-2'>
 
-            <div onClick={openWindow} className={`bg-slate-200 p-2 flex items-center border-r-4 border-slate-300 cursor-pointer ${isOpen ? 'bg-blue-700 text-white' : ''} font-bold text-sm md:text-base`}><span className='mx-2'>{isOpen ? '-' : '+'}</span>E2250-01</div>
+            <div onClick={openWindow} className={`bg-slate-200 p-2 flex items-center border-r-4 border-slate-300 cursor-pointer ${isOpen ? 'bg-blue-700 text-white' : ''} font-bold text-sm md:text-base`}><span className='mx-2'>{isOpen ? '-' : '+'}</span>{nameVersion}</div>
             <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}

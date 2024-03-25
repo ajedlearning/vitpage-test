@@ -1,12 +1,11 @@
-import ShowProducts from '@/app/components/ShowProducts'
 import React from 'react'
 
 const page = ({ params }: { params: { id: string } }) => {
   return (
 
-   <>
-    <ShowProducts/>
-   </>
+   <div>
+    <h2>Bienvenidos al producto del id {params.id}</h2>
+   </div>
 
    
  

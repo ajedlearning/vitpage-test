@@ -1,20 +1,34 @@
 import React from 'react'
-import ProductsVersion from './ProductsVersion'
 import Image from 'next/image'
+import { Products } from '@prisma/client'
+import { GroupVersions } from './GroupVersions';
 
-const ShowProducts = () => {
+const ShowProducts = ({
+    products,
+}: {
+    products: Products[];
+}) => {
     return (
-        <section className='flex flex-col md:flex-row mx-2'>
-            <article className='flex justify-center items-center  md:w-[50%] w-[100%] p-4 order-1 md:-order-none'><Image src={`/images/desktop.jpg`} height={463} width={768} alt="Imagen de nosotros" /></article>
-            <article className=' md:w-[50%] w-[100%] p-4 ' >
-                <h2 className='font-bold p-1 mb-6 text-xl'>Modelo E2250</h2>
-                <ProductsVersion />
-                <ProductsVersion />
-                <ProductsVersion />
-                
+        <>
 
-            </article>
-        </section>
+            {products.map((product) => (
+                <article key={product.model} className='flex flex-col md:flex-row mx-2'>
+
+                    <article className='flex justify-center items-center  md:w-[50%] w-[100%] p-4 order-1 md:-order-none'><Image src={`/images/desktop.jpg`} height={463} width={768} alt="Imagen de nosotros" /></article>
+                    <article className=' md:w-[50%] w-[100%] p-4 ' >
+                        <h2 className='font-bold p-1 mb-6 text-xl'>Modelo {product.model}</h2>
+
+
+                        <GroupVersions id={product.id} />
+
+
+
+                    </article>
+
+                </article>
+            ))}
+        </>
+
     )
 }
 
