@@ -39,7 +39,7 @@ const links = [
 ]
 export const LinkNavbar = () => {
   const pathname = usePathname();
-//  console.log(pathname)
+ console.log(pathname)
   return (
     <>
       {links.map((ln) => (

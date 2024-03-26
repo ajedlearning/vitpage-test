@@ -1,11 +1,15 @@
-import React from 'react'
+import ShowProducts from "@/app/components/ShowProducts"
+import { getProductsByCategory } from "@/app/lib/data"
 
-const page = ({ params }: { params: { id: string } }) => {
+
+const page = async ({ params }: { params: { id: string } }) => {
+
+  const productsByCatg = await getProductsByCategory(parseInt(params.id))
   return (
 
-   <div>
-    <h2>Bienvenidos al producto del id {params.id}</h2>
-   </div>
+   <>
+    <ShowProducts products={productsByCatg}/>
+   </>
 
    
  
