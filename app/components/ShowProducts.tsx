@@ -1,4 +1,3 @@
-import React from 'react'
 import Image from 'next/image'
 import { Products } from '@prisma/client'
 import { GroupVersions } from './GroupVersions';
