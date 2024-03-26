@@ -13,7 +13,7 @@ const ProductsVersion = ({ nameVersion }: { nameVersion: string }) => {
     return (
         <div className='mb-2'>
 
-            <div onClick={openWindow} className={`bg-slate-200 p-2 flex items-center border-r-4 border-slate-300 cursor-pointer ${isOpen ? 'bg-blue-700 text-white' : ''} font-bold text-sm md:text-base`}><span className='mx-2'>{isOpen ? '-' : '+'}</span>{nameVersion}</div>
+            <div onClick={openWindow} className={`p-2 flex items-center border-r-4 border-slate-300 cursor-pointer ${isOpen ? 'bg-blue-700 text-white' : 'bg-slate-200'} font-bold text-sm md:text-base`}><span className='mx-2'>{isOpen ? '-' : '+'}</span>{nameVersion}</div>
             <motion.div
                 initial={{ height: 0, opacity: 0 }}
                 animate={{ height: isOpen ? "auto" : 0, opacity: isOpen ? 1 : 0 }}
