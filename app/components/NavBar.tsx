@@ -1,6 +1,6 @@
 'use client'
 import Image from 'next/image'
-import React, { useState, useEffect } from 'react'
+import { useState, useEffect } from 'react'
 import { LinkMobileNavbar, LinkNavbar } from './LinkNavbars';
 
 
@@ -96,6 +96,8 @@ const NavBar = () => {
                                 height={800}
                                 width={800}
                             />
+
+                            
 
 
                         </div>

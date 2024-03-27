@@ -3,6 +3,7 @@ import "./globals.css";
 import NavBar from "@/app/components/NavBar";
 import Footer from "@/app/components/Footer";
 import { inter } from '@/app/fonts';
+import MainNavBar from "./components/MainNavBar";
 
 
 
@@ -19,11 +20,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
-        <NavBar />
+        {/* <NavBar /> */}
+        <MainNavBar />
         <main className="min-h-screen">
           {children}
         </main>
-      <Footer />
+        <Footer />
 
 
       </body>
