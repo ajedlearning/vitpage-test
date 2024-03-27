@@ -53,7 +53,7 @@ export default function MainNavBar() {
                 /></Link>
                 {/* brand */}
                 {/* toggler btn */}
-                <button onClick={openMenuMobile} className="ml-auto lg:hidden inline-flex items-center justify-center border h-10 w-10 text-white rounded-md outline-none focus:outline-none">
+                <button onClick={openMenuMobile}  className="ml-auto lg:hidden inline-flex items-center justify-center border h-10 w-10 text-white rounded-md outline-none focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
