@@ -15,7 +15,7 @@ export default function MainNavBar() {
     const openSubMenu = () => {
         setIsSubMenuOpen(!isSubMenuOpen)
 
-      
+
     }
 
     const openMenuMobile = () => {
@@ -55,7 +55,7 @@ export default function MainNavBar() {
                 /></Link>
                 {/* brand */}
                 {/* toggler btn */}
-                <button onClick={openMenuMobile}  className="ml-auto lg:hidden inline-flex items-center justify-center border h-10 w-10 text-white rounded-md outline-none focus:outline-none">
+                <button onClick={openMenuMobile} className="ml-auto lg:hidden inline-flex items-center justify-center border h-10 w-10 text-white rounded-md outline-none focus:outline-none">
                     <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" strokeWidth="1.5" stroke="currentColor" className="w-6 h-6">
                         <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                     </svg>
@@ -82,7 +82,7 @@ export default function MainNavBar() {
 
                         {/* drop down  */}
                         <li className="relative">
-                            <button onMouseOver={openSubMenu} className="w-full outline-none focus:outline-none flex   px-4 py-2 f ot-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white" >SOPORTE</button>
+                            <button onMouseOver={openSubMenu} className="w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white" >SOPORTE</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
                             <div onMouseLeave={openSubMenu} className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
