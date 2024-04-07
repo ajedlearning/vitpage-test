@@ -13,9 +13,10 @@ export default function MainNavBar() {
     const pathname = usePathname();
 
     const openSubMenu = () => {
-        setIsSubMenuOpen(!isSubMenuOpen)
-
-
+        setIsSubMenuOpen(true)
+    }
+    const closeSubMenu = () => {
+        setIsSubMenuOpen(false)
     }
 
     const openMenuMobile = () => {
@@ -81,11 +82,14 @@ export default function MainNavBar() {
                         </li>
 
                         {/* drop down  */}
-                        <li className="relative border border-red-700" onMouseOver={openSubMenu} onMouseLeave={openSubMenu}>
+
+=======
+                        <li className="relative" onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu}>
                             <button  className="w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white" >SOPORTE</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div  className={clsx('border border-yellow-400  lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
+                            <div  className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
+
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
                                         <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black">categories</Link>
