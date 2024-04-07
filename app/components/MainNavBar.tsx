@@ -8,15 +8,37 @@ import { usePathname } from 'next/navigation'
 export default function MainNavBar() {
     const [isMenuOpen, setIsMenuOpen] = useState(false)
     const [isSubMenuOpen, setIsSubMenuOpen] = useState(false)
+    const [isSubMenuOpenAbout, setIsSubMenuOpenAbout] = useState(false)
+    const [isSubMenuOpenNews, setIsSubMenuOpenNews] = useState(false)
+    const [isSubMenuOpenSales, setIsSubMenuOpenSales] = useState(false)
     const [scroll, setScroll] = useState(false);
 
     const pathname = usePathname();
 
-    const openSubMenu = () => {
+    const openSubMenu = (e: any) => {
+        console.log(e.target.id)
         setIsSubMenuOpen(true)
+    }
+    const openSubMenuAbout = () => {
+        setIsSubMenuOpenAbout(true)
+    }
+    const openSubMenuNews = () => {
+        setIsSubMenuOpenNews(true)
+    }
+    const openSubMenuSales = () => {
+        setIsSubMenuOpenSales(true)
     }
     const closeSubMenu = () => {
         setIsSubMenuOpen(false)
+    }
+    const closeSubMenuAbout = () => {
+        setIsSubMenuOpenAbout(false)
+    }
+    const closeSubMenuNews = () => {
+        setIsSubMenuOpenNews(false)
+    }
+    const closeSubMenuSales = () => {
+        setIsSubMenuOpenSales(false)
     }
 
     const openMenuMobile = () => {
@@ -71,43 +93,89 @@ export default function MainNavBar() {
                         <li>
                             <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/" })} href="/">INICIO</Link>
                         </li>
-                        <li>
-                            <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/nosotros" })} href="/nosotros">NOSOTROS</Link>
+                        <li className="relative" onMouseEnter={openSubMenuAbout} onMouseLeave={closeSubMenuAbout}>
+                            <button className={`${isSubMenuOpenAbout? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >NOSOTROS</button>
+                            <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
+                            {/* drop menu  */}
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenAbout })}>
+
+                                <ul className="space-y-2 lg:w-48">
+                                    <li>
+                                        <Link href="/nosotros" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">RESEÑA HISTÓRICA</Link>
+                                    </li>
+                                    <li>
+                                        <Link href="/nosotros/filosofia-de-gestion" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">FILOSOFÍA DE GESTIÓN</Link>
+                                    </li>
+                                   
+                                </ul>
+                            </div>
+                            {/* drop menu  */}
                         </li>
                         <li>
                             <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/productos" })} href="/productos">PRODUCTOS</Link>
                         </li>
-                        <li>
-                            <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/noticias" })} href="/noticias">NOTICIAS</Link>
+                        <li className="relative" onMouseEnter={openSubMenuNews} onMouseLeave={closeSubMenuNews}>
+                            <button className={`${isSubMenuOpenNews? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >NOTICIA</button>
+                            <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
+                            {/* drop menu  */}
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenNews })}>
+
+                                <ul className="space-y-2 lg:w-48">
+                                    <li>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">NOTAS DE PRENSA</Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">RADIO EN LÍNEA</Link>
+                                    </li>
+                                  
+                                </ul>
+                            </div>
+                            {/* drop menu  */}
                         </li>
 
                         {/* drop down  */}
 
                         <li className="relative" onMouseEnter={openSubMenu} onMouseLeave={closeSubMenu}>
-                            <button  className="w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white" >SOPORTE</button>
+                            <button className={`${isSubMenuOpen? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >SOPORTE</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div  className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black">categories</Link>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">CONTROLADORES</Link>
                                     </li>
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black">Inventories</Link>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">SOPORTE TÉCNICO</Link>
                                     </li>
-                                    <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black">Brands</Link>
-                                    </li>
+                                   
                                 </ul>
                             </div>
                             {/* drop menu  */}
                         </li>
                         {/* drop down  */}
 
-                        <li>
-                            <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/ventas" })} href="/ventas">VENTAS</Link>
+                      {/* drop down  */}
+
+                      <li className="relative" onMouseEnter={openSubMenuSales} onMouseLeave={closeSubMenuSales}>
+                            <button className={`${isSubMenuOpenSales? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >VENTAS</button>
+                            <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
+                            {/* drop menu  */}
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenSales })}>
+
+                                <ul className="space-y-2 lg:w-48">
+                                    <li>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">COMERCIO EXTERIOR</Link>
+                                    </li>
+                                    <li>
+                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-sm text-gray-600 hover:bg-gray-300 hover:text-black">VENTAS INSTITUCIONALES</Link>
+                                    </li>
+                                 
+                                </ul>
+                            </div>
+                            {/* drop menu  */}
                         </li>
+                        {/* drop down  */}
                         <li>
                             <Link className={clsx('flex px-4 py-2 font-medium text-white lg:text-gray-500 hover:bg-blue-800 hover:text-white', { 'bg-blue-800 lg:text-white': pathname === "/contacto" })} href="/contacto">CONTACTO</Link>
                         </li>
