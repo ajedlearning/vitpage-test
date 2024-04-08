@@ -143,10 +143,10 @@ export default function MainNavBar() {
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">CONTROLADORES</Link>
+                                        <Link href="/controladores" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">CONTROLADORES</Link>
                                     </li>
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">SOPORTE TÉCNICO</Link>
+                                        <Link href="/soporte" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">SOPORTE TÉCNICO</Link>
                                     </li>
                                    
                                 </ul>
