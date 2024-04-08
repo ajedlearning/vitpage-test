@@ -10,7 +10,7 @@ const ShowProducts = ({
     return (
         <>
 
-            {products.map((product) => (
+            {products?.map((product) => (
                 <article key={product.model} className='flex flex-col md:flex-row mx-2'>
 
                     <article className='flex justify-center items-center  md:w-[50%] w-[100%] p-4 order-1 md:-order-none'><Image src={`/images/desktop.jpg`} height={463} width={768} alt="Imagen de nosotros" /></article>

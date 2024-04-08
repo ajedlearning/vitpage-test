@@ -11,7 +11,7 @@ export async function getProducts() {
         return data;
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch Products data.');
+        // throw new Error('Failed to fetch Products data.');
     }
 }
 
@@ -29,7 +29,7 @@ export async function getProductsVersionById(query: number) {
 
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch Versiones')
+        // throw new Error('Failed to fetch Versiones')
     }
 }
 
@@ -45,7 +45,7 @@ export async function getProductsByCategory(query: number) {
         return data;
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch Products')
+        // throw new Error('Failed to fetch Products')
     }
 }
 
@@ -60,7 +60,7 @@ export async function getProductCategories() {
         return data;
     } catch (error) {
         console.error('Database Error:', error);
-        throw new Error('Failed to fetch Categories')
+        // throw new Error('Failed to fetch Categories')
     }
 }
 
