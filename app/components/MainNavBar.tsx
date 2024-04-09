@@ -65,7 +65,7 @@ export default function MainNavBar() {
 
 
     return (
-        <nav className={`fixed z-10 w-full h-24 pt-4 transition-all duration-500 ease-in ${scroll ? 'lg:bg-white transition-all duration-500 ease-in border-b-gray-400 bg-blue-800' : 'bg-blue-800 lg:bg-transparent'}`}>
+        <nav className={` fixed z-20 w-full h-24 pt-4 transition-all duration-500 ease-in ${scroll ? 'lg:bg-white transition-all duration-500 ease-in border border-b-gray-400 bg-blue-800' : 'bg-blue-800 lg:bg-transparent'}`}>
             {/* container  */}
             <div className="lg:container w-full px-4 mx-auto py-2 flex flex-wrap lg:space-x-4">
                 {/* brand */}
@@ -97,7 +97,7 @@ export default function MainNavBar() {
                             <button className={`${isSubMenuOpenAbout? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >NOSOTROS</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenAbout })}>
+                            <div className={clsx('lg:absolute bg-white z-10 right-0 p-2 border', { 'hidden': !isSubMenuOpenAbout })}>
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
@@ -118,7 +118,7 @@ export default function MainNavBar() {
                             <button className={`${isSubMenuOpenNews? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >NOTICIA</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenNews })}>
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2 border', { 'hidden': !isSubMenuOpenNews })}>
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
@@ -139,7 +139,7 @@ export default function MainNavBar() {
                             <button className={`${isSubMenuOpen? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >SOPORTE</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpen })}>
+                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2 border', { 'hidden': !isSubMenuOpen })}>
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
@@ -161,14 +161,14 @@ export default function MainNavBar() {
                             <button className={`${isSubMenuOpenSales? 'bg-blue-700 text-wrap':'hover:bg-blue-800 hover:text-white lg:text-gray-500 '} w-full outline-none focus:outline-none flex   px-4 py-2 font-medium text-white `} >VENTAS</button>
                             <div className="h-0 w-0 border-t-[10px] border-l-[10px] border-r-[10px] border-blue-800  border-l-transparent border-r-transparent mx-auto"></div>
                             {/* drop menu  */}
-                            <div className={clsx('lg:absolute bg-white z-10 right-0   p-2', { 'hidden': !isSubMenuOpenSales })}>
+                            <div className={clsx('lg:absolute bg-white z-10 right-0 p-2 border', { 'hidden': !isSubMenuOpenSales })}>
 
                                 <ul className="space-y-2 lg:w-48">
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">COMERCIO EXTERIOR</Link>
+                                        <Link href="/comercio-exterior" className="flex lg:p-2 pl-6 py-2 font-medium text-gray-600 hover:bg-gray-300 hover:text-black text-sm">COMERCIO EXTERIOR</Link>
                                     </li>
                                     <li>
-                                        <Link href="#" className="flex lg:p-2 pl-6 py-2 font-medium text-sm text-gray-600 hover:bg-gray-300 hover:text-black">VENTAS INSTITUCIONALES</Link>
+                                        <Link href="/ventas-institucionales" className="flex lg:p-2 pl-6 py-2 font-medium text-sm text-gray-600 hover:bg-gray-300 hover:text-black">VENTAS INSTITUCIONALES</Link>
                                     </li>
                                  
                                 </ul>
