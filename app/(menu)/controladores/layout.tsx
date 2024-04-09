@@ -7,9 +7,9 @@ export default async function ControllersLayout({
   children: React.ReactNode;
 }>) {
   return (
-   <div className="pt-28">
+   <section className="pt-28">
     <BannerControllers/>
     {children}
-   </div>
+   </section>
   );
 }

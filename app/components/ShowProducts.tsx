@@ -2,6 +2,7 @@ import Image from 'next/image'
 import { Products } from '@prisma/client'
 import { GroupVersions } from './GroupVersions';
 
+
 const ShowProducts = ({
     products,
 }: {

@@ -3,9 +3,9 @@ import React from 'react'
 
 function page() {
     return (
-        <div className="md:pt-28">
+        <section className="md:pt-28">
             <Philosophy />
-        </div>
+        </section>
     )
 }
 

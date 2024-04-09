@@ -4,9 +4,9 @@ import About from "@/app/components/About"
 
 const Aboutus = () => {
   return (
-   <div className="md:pt-28">
+   <section className="md:pt-28">
     <About />
-   </div>
+   </section>
 
   )
 }

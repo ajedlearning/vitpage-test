@@ -9,11 +9,11 @@ export default async function ProductLayout({
 }>) {
   const categories = await getProductCategories();
   return (
-   <div className="pt-28">
+   <section className="pt-28">
     <Banner/>
     
     <NavBarProducts2 categories={categories}/> 
     {children}
-   </div>
+   </section>
   );
 }
