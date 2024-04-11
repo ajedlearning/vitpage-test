@@ -3,7 +3,7 @@ import React from 'react'
 
 const HomeVideo = () => {
     return (
-        <article className="hidden md:flex  justify-center relative">
+        <article className="hidden md:flex  justify-center relative lg:mb-10">
 
 
             <video className="" autoPlay muted loop>

@@ -3,26 +3,13 @@ import Image from "next/image"
 const Contact = () => {
     return (
         <section className="flex w-full pt-24 md:pt-0">
-            <article className="hidden md:inline md:w-full p-0"><Image className="w-full" src='/images/contact-photo.jpg' height={890} width={1080} alt="Imagen de nosotros" /></article>
+            <article className="hidden md:inline md:w-full p-0"><Image className="w-full h-full" src='/images/contact-photo.jpg' height={890} width={1080} alt="Imagen de nosotros" /></article>
             <article className="w-[100%] md:w-[100%] pl-9 pt-4 pr-6 md:pl-20 md:pt-6 md:pr-20 text-justify bg-white">
 
                 <h1 className="mb-6 text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center border-l-8 border-red-700">CONTÁCTANOS</h1>
 
                 <>
-                    {/*
-  This example requires some changes to your config:
-  
-  ```
-  // tailwind.config.js
-  module.exports = {
-    // ...
-    plugins: [
-// ...
-require('@tailwindcss/forms'),
-    ],
-  }
-  ```
-*/}
+
                     <form>
                         <div className="space-y-12">
 
