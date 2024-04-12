@@ -11,6 +11,7 @@ import ProductControllers from "@/app/components/ProductControllers";
 import InstitutionalSales from "@/app/components/InstitutionalSales";
 import Contact from "@/app/components/Contact";
 import BannerHomeSupport from "./components/BannerHomeSupport";
+import BannerHomeControllers from "./components/BannerHomeControllers";
 
 
 export default async function Home() {
@@ -27,10 +28,10 @@ export default async function Home() {
       <HomeVideo />
       <NavBarProducts2 categories={categories} />
       <ShowProducts products={products} />
-      <h2 className=" text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center ">SOPORTE TÉCNICO</h2>
 
       <BannerHomeSupport />
-      <ProductControllers />
+      <BannerHomeControllers/>
+      {/* <ProductControllers /> */}
       {/* <TecnicalSupport /> */}
       <InstitutionalSales />
       <Contact />

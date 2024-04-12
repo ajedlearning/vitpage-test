@@ -26,7 +26,7 @@ function InstitutionalSales() {
     </article>
 
     <article className='lg:w-[50%] w-f lg:mt-0 mt-4 '>
-      <Image className="w-full" src={`/images/ventas-institucionales.jpg`} width={700} height={659} alt="Imagen de ventas institucionales, dama ejecutiva en un mostrador" />
+      <Image className="w-full" src={`/images/institutional-sales.jpg`} width={700} height={659} alt="Imagen de ventas institucionales, dama ejecutiva en un mostrador" />
     </article>
     
   </section>
