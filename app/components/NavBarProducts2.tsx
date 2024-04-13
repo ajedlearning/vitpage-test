@@ -11,7 +11,9 @@ const NavBarProducts2 = ({categories}:{categories: ProductsCategories[]}) => {
   const pathname = usePathname();
   return (
     <>
-      <h2 className=" text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center ">PRODUCTOS</h2>
+      <hr className='mx-auto w-10 bg-blue-700 h-1 lg:mb-6 mt-6 lg:mt-0' />
+
+      <h2 className="mt-6 lg:mt-2 text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center ">PRODUCTOS</h2>
 
       <nav className='flex flex-col text-sm md:flex-row justify-between md:w-[80%] w-[70%] md:mx-auto p-4 md:p-6 font-bold'>
         {categories?.map((catg) => (

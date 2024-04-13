@@ -2,9 +2,9 @@ import Image from "next/image"
 
 const Contact = () => {
     return (
-        <section className="flex w-full pt-24 md:pt-0">
+        <section className="flex w-full lg:pt-24 pt-6 md:pt-0">
             <article className="hidden md:inline md:w-full p-0"><Image className="w-full h-full" src='/images/contact-photo.jpg' height={890} width={1080} alt="Imagen de nosotros" /></article>
-            <article className="w-[100%] md:w-[100%] pl-9 pt-4 pr-6 md:pl-20 md:pt-6 md:pr-20 text-justify bg-white">
+            <article className="w-[100%] md:w-[100%] lg:pl-9 pl-6 pt-4 pr-6 md:pl-20 md:pt-6 md:pr-20 text-justify bg-white">
 
                 <h1 className="mb-6 text-2xl md:text-4xl lg:text-5xl font-bold p-2 text-center border-l-8 border-red-700">CONTÁCTANOS</h1>
 
@@ -17,7 +17,7 @@ const Contact = () => {
                                 <h2 className="text-base font-semibold leading-7 text-gray-900">
                                     Introduzca sus datos
                                 </h2>
-                                
+
                                 <div className="mt-10 grid grid-cols-1 gap-x-6 gap-y-8 sm:grid-cols-6">
                                     <div className="sm:col-span-3">
                                         <label
@@ -58,7 +58,7 @@ const Contact = () => {
                                             htmlFor="email"
                                             className="block text-sm font-medium leading-6 text-gray-900"
                                         >
-                                           Tu Correo
+                                            Tu Correo
                                         </label>
                                         <div className="mt-2">
                                             <input
@@ -70,8 +70,8 @@ const Contact = () => {
                                             />
                                         </div>
                                     </div>
-                                    
-                               <div className="col-span-full">
+
+                                    <div className="col-span-full">
                                         <label
                                             htmlFor="about"
                                             className="block text-sm font-medium leading-6 text-gray-900"
@@ -96,9 +96,9 @@ const Contact = () => {
                             </div>
 
 
-                                                    
+
                         </div>
-                        <div className="lg:mt-6 mb-2 flex items-center justify-end gap-x-6">
+                        <div className="lg:mt-6 mb-4 mt-4 flex items-center lg:justify-end justify-center gap-x-6">
                             <button
                                 type="button"
                                 className="text-sm font-semibold leading-6 text-gray-900"
