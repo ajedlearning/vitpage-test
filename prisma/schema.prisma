@@ -22,12 +22,56 @@ model ProductsCategories {
   updatedAt DateTime   @updatedAt
 }
 
+model ProductsDriversCategories {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  ProductDrivers ProductDrivers[]
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model ProductDrivers {
+  id Int @id @default(autoincrement())
+  operatingSystems OperatingSystems? @relation(fields: [operatingSystemsId], references: [id])
+  operatingSystemsId Int?
+  productsDriversCategories ProductsDriversCategories? @relation(fields: [prodDriverCatId], references: [id])
+  prodDriverCatId Int
+  products Products? @relation(fields: [prodId], references: [id])
+  prodId Int
+  driverTypes DriverTypes? @relation(fields: [typeDriverId], references: [id])
+  typeDriverId Int
+  location String
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model DriverTypes {
+  id Int @id @default(autoincrement())
+  name String
+  productDrivers ProductDrivers[]
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt 
+}
+
 model Products {
   id       Int    @id @default(autoincrement())
   model    String
   category ProductsCategories?   @relation(fields: [categoryId], references: [id])
   categoryId Int?
+  productDrivers ProductDrivers[]
   productsVersions ProductsVersions[]
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model OperatingSystems {
+  id       Int    @id @default(autoincrement())
+  name     String 
+  productsDriver ProductDrivers[]
   active    Boolean    @default(true)
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt
