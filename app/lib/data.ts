@@ -1,8 +1,5 @@
 import { prisma } from '@/app/lib/prisma'
 
-
-
-
 export async function getProducts() {
 
     try {
@@ -63,5 +60,134 @@ export async function getProductCategories() {
         // throw new Error('Failed to fetch Categories')
     }
 }
+
+export async function getDriverProducts() {
+    try {
+        const data = await prisma.productDrivers.findMany(
+            {
+                include: {
+                    operatingSystems: {
+                        select: {
+                            name: true
+                        }
+                    },
+                    productsCategories: {
+                        select: {
+                            name: true
+                        }
+                    },
+                    products: {
+                        select: {
+                            model: true
+                        }
+                    },
+                    driverTypes: {
+                        select: {
+                            name: true
+                        }
+                    },
+
+
+                },
+                where: {
+                    active: true
+                }
+            }
+        )
+
+        return data;
+
+
+    } catch (error) {
+        console.error('Data Error', error)
+    }
+}
+export async function getDriverProductsByIdProd(query : number) {
+    try {
+        const data = await prisma.productDrivers.findMany(
+            {
+                include: {
+                    operatingSystems: { 
+                        select: {
+                            name: true
+                        }
+                    },
+                    productsCategories: {
+                        select: {
+                            name: true
+                        }
+                    },
+                    products: {
+                        select: {
+                            model: true
+                        }
+                    },
+                    driverTypes: {
+                        select: {
+                            name: true
+                        }
+                    },
+
+
+                },
+                where: {
+                    active: true,
+                    prodId: query
+                }
+            }
+        )
+        // console.log(data)
+        return data;
+
+
+    } catch (error) {
+        console.error('Data Error', error)
+    }
+}
+export async function getTypeDriverByIdProdByIdOs(prodId : number, osId: number) {
+    try {
+        const data = await prisma.productDrivers.findMany(
+            {
+                include: {
+                    operatingSystems: { 
+                        select: {
+                            name: true
+                        }
+                    },
+                    productsCategories: {
+                        select: {
+                            name: true
+                        }
+                    },
+                    products: {
+                        select: {
+                            model: true
+                        }
+                    },
+                    driverTypes: {
+                        select: {
+                            name: true
+                        }
+                    },
+
+
+                },
+                where: {
+                    active: true,
+                    prodId,
+                    operatingSystemsId : osId 
+
+                }
+            }
+        )
+        console.log(data)
+        return data;
+
+
+    } catch (error) {
+        console.error('Data Error', error)
+    }
+}
+
 
 

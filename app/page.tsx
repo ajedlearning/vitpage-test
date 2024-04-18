@@ -6,8 +6,6 @@ import HomeVideo from "@/app/components/HomeVideo";
 import { getProducts, getProductCategories } from '@/app/lib/data'
 import ShowProducts from "@/app/components/ShowProducts";
 import NavBarProducts2 from "@/app/components/NavBarProducts2";
-import TecnicalSupport from "@/app/components/TecnicalSupport";
-import ProductControllers from "@/app/components/ProductControllers";
 import InstitutionalSales from "@/app/components/InstitutionalSales";
 import Contact from "@/app/components/Contact";
 import BannerHomeSupport from "./components/BannerHomeSupport";
@@ -31,8 +29,6 @@ export default async function Home() {
 
       <BannerHomeSupport />
       <BannerHomeControllers/>
-      {/* <ProductControllers /> */}
-      {/* <TecnicalSupport /> */}
       <InstitutionalSales />
       <Contact />
 

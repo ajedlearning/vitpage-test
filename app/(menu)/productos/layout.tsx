@@ -12,7 +12,7 @@ export default async function ProductLayout({
    <section className="pt-28">
     <Banner/>
     
-    <NavBarProducts2 categories={categories}/> 
+    <NavBarProducts2 categories={categories} title="PRODUCTOS" url="productos"/> 
     {children}
    </section>
   );

@@ -6,7 +6,7 @@ import { GroupVersions } from './GroupVersions';
 const ShowProducts = ({
     products,
 }: {
-    products: Products[];
+    products: Products[] | undefined;
 }) => {
     return (
         <>

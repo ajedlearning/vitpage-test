@@ -17,26 +17,30 @@ model ProductsCategories {
   id   Int    @id @default(autoincrement())
   name String @unique
   products Products[]
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
-}
-
-model ProductsDriversCategories {
-  id   Int    @id @default(autoincrement())
-  name String @unique
   ProductDrivers ProductDrivers[]
   active    Boolean    @default(true)
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt
 }
 
+// model ProductsDriversCategories {
+//   id   Int    @id @default(autoincrement())
+//   name String @unique
+//   Products Products[]
+//   ProductDrivers ProductDrivers[]
+//   active    Boolean    @default(true)
+//   createdAt DateTime   @default(now()) @db.Timestamp(6)
+//   updatedAt DateTime   @updatedAt
+// }
+
 model ProductDrivers {
   id Int @id @default(autoincrement())
   operatingSystems OperatingSystems? @relation(fields: [operatingSystemsId], references: [id])
   operatingSystemsId Int?
-  productsDriversCategories ProductsDriversCategories? @relation(fields: [prodDriverCatId], references: [id])
-  prodDriverCatId Int
+  productsCategories ProductsCategories? @relation(fields: [prodCatId], references: [id])
+  prodCatId Int
+  // productsDriverCategories ProductsDriversCategories? @relation(fields: [prodDriverCatId], references: [id])
+  // prodDriverCatId Int
   products Products? @relation(fields: [prodId], references: [id])
   prodId Int
   driverTypes DriverTypes? @relation(fields: [typeDriverId], references: [id])
@@ -61,6 +65,8 @@ model Products {
   model    String
   category ProductsCategories?   @relation(fields: [categoryId], references: [id])
   categoryId Int?
+  // ProductsDriverCategories ProductsDriversCategories?   @relation(fields: [proDriverCatId], references: [id])
+  // proDriverCatId Int?
   productDrivers ProductDrivers[]
   productsVersions ProductsVersions[]
   active    Boolean    @default(true)

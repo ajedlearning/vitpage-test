@@ -1,10 +1,12 @@
-import ProductControllers from '@/app/components/ProductControllers'
-import React from 'react'
+import ProductDrivers from '@/app/components/ProductDrivers'
+import {getProducts} from '@/app/lib/data'
 
-const page = () => {
+const page = async () => {
+  const products = await getProducts();
   return (
     <>
-      <ProductControllers />
+     
+       
 
     </>
   )
