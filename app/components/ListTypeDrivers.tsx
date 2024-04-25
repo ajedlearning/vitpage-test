@@ -9,7 +9,7 @@ const ListTypeDrivers = ({ idProd, os, data }: { idProd: number, os: string | un
     const openWindow = () => {
         setIsOpen(!isOpen)
     }
-    console.log(first)
+    console.log(data)
     return (
         <div className='mb-2'>
 
