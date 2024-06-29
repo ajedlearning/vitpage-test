@@ -102,41 +102,20 @@ export async function getDriverProducts() {
         console.error('Data Error', error)
     }
 }
-export async function getDriverProductsByIdProd(query : number) {
+export async function getOperatingSystem() {
     try {
-        const data = await prisma.productDrivers.findMany(
+        const data = await prisma.operatingSystems.findMany(
             {
-                include: {
-                    operatingSystems: { 
-                        select: {
-                            name: true
-                        }
-                    },
-                    productsCategories: {
-                        select: {
-                            name: true
-                        }
-                    },
-                    products: {
-                        select: {
-                            model: true
-                        }
-                    },
-                    driverTypes: {
-                        select: {
-                            name: true
-                        }
-                    },
-
-
-                },
+                
                 where: {
                     active: true,
-                    prodId: query
+                    
                 }
+                
+                
             }
         )
-        // console.log(data)
+         console.log(data)
         return data;
 
 

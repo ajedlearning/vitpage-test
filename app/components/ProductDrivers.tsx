@@ -1,10 +1,11 @@
 import ListTypeDrivers from './ListTypeDrivers'
-import { getDriverProductsByIdProd } from '@/app/lib/data'
+import { getOperatingSystem } from '@/app/lib/data'
 
 
 const ProductDrivers = async ({product, idProd}:{product: string, idProd: number}) => {
-    const driverProducts = await getDriverProductsByIdProd(idProd);
-    const driverProducts2 = await getDriverProductsByIdProd(idProd);
+    // const driverProducts = await getDriverProductsByIdProd(idProd);
+    const operatingSystem = await getOperatingSystem();
+    // const driverProducts2 = await getDriverProductsByIdProd(idProd);
     return (
         <section className="mx-auto w-[70%]">
 
@@ -12,8 +13,8 @@ const ProductDrivers = async ({product, idProd}:{product: string, idProd: number
             <article>
                 <h2 className="py-4 font-bold">{product}</h2>
                 {
-                   driverProducts?.map((driverProduct)=>(                       
-                       <ListTypeDrivers  key={driverProduct.id} os={driverProduct.operatingSystems?.name} idProd={driverProduct.prodId}  data = {driverProducts2}  />
+                   operatingSystem?.map((os)=>(                       
+                       <ListTypeDrivers  key={os.id} os={os.name} idOs={os.id} idProd={idProd}    />
                    )) 
                 }
 
