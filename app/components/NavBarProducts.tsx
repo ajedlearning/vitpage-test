@@ -56,7 +56,7 @@ function NavBarProducts() {
 
       </nav>
 
-      <ProductDetails product={productInfo} />
+      <ProductDetails products={productInfo} />
 
 
 
