@@ -46,6 +46,19 @@ export async function getProductsByCategory(query: number) {
     }
 }
 
+export async function getProductCategoriesById(params:number) {
+    try {
+        const data = await prisma.productsCategories.findFirst({
+            where :{
+                id: params
+            }
+        })
+        return data;
+    } catch (error) {
+        console.error('Database Error:', error )
+    }
+}
+
 
 export async function getProductCategories() {
     try {

@@ -11,7 +11,7 @@ const ProductDrivers = async ({product, idProd}:{product: string, idProd: number
 
 
             <article>
-                <h2 className="py-4 font-bold">{product}</h2>
+                <h2 className="py-4 font-bold">{`MODELO ${product}`}</h2>
                 {
                    operatingSystem?.map((os)=>(                       
                        <ListTypeDrivers  key={os.id} os={os.name} idOs={os.id} idProd={idProd}    />

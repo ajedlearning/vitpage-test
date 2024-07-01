@@ -18,6 +18,7 @@ model ProductsCategories {
   name String @unique
   products Products[]
   ProductDrivers ProductDrivers[]
+  categoryImage String
   active    Boolean    @default(true)
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt
