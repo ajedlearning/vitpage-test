@@ -7,7 +7,7 @@ import {ProductsCategories} from '@prisma/client'
 
 
 
-const NavBarProducts2 = ({categories, title, url}:{categories: ProductsCategories[] | undefined, title : string, url:string}) => {
+const NavBarProducts2 = ({categories, title, url}:{categories: ProductsCategories[] | undefined, title : string , url:string}) => {
   const pathname = usePathname();
   return (
     <>

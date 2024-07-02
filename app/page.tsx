@@ -24,7 +24,7 @@ export default async function Home() {
       <Philosophy />
       <AboutImage />
       <HomeVideo />
-      <NavBarProducts2 categories={categories} />
+      <NavBarProducts2 categories={categories} url="mi_url" title="PRODUCTOS" />
       <ShowProducts products={products} />
 
       <BannerHomeSupport />
