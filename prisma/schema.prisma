@@ -66,10 +66,9 @@ model Products {
   model    String
   category ProductsCategories?   @relation(fields: [categoryId], references: [id])
   categoryId Int?
-  // ProductsDriverCategories ProductsDriversCategories?   @relation(fields: [proDriverCatId], references: [id])
-  // proDriverCatId Int?
   productDrivers ProductDrivers[]
   productsVersions ProductsVersions[]
+  productImage String   @default("default-image.jpg") // Valor predeterminado
   active    Boolean    @default(true)
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt
@@ -89,6 +88,8 @@ model ProductsVersions {
   name String @unique
   product Products? @relation(fields: [productId], references: [id])
   productId Int?
+  espeficications String @default("procesador, discoduro, memoria ram")
+  datasheetsLocation String @default("datasheetdefault.pdf")
   active    Boolean    @default(true)
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt

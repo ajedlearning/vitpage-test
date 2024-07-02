@@ -1,15 +1,18 @@
 'use client'
 import { useState } from 'react'
 import { motion } from 'framer-motion';
+import Link from 'next/link';
 
 
 
 
-const ProductsVersion = ({ nameVersion }: { nameVersion: string }) => {
+const ProductsVersion = ({ nameVersion, especifications, datasheet }: { nameVersion: string, especifications: string, datasheet: string }) => {
     const [isOpen, setIsOpen] = useState(false);
     const openWindow = () => {
         setIsOpen(!isOpen)
     }
+
+    const specif = especifications.split(',')
     return (
         <div className='mb-2'>
 
@@ -21,11 +24,14 @@ const ProductsVersion = ({ nameVersion }: { nameVersion: string }) => {
                 className="overflow-hidden transition-all duration-300"
             >
                 <div className={`bg-blue-700 p-2 text-sm md:text-base  border-r-4 border-slate-300 text-white`}>
-                    <div className='text-left p-2'><span className='mr-4'>✔</span>Procesador Intel® Core i3</div>
-                    <div className='text-left p-2'><span className='mr-4'>✔</span>Disco Duro Sata 500Gb</div>
-                    <div className='text-left p-2'><span className='mr-4'>✔</span>Memoria Ram 4Gb</div>
-                    <div className='text-left p-2'><span className='mr-4'>✔</span>Monitor LCD de 19,5</div>
-                    <div className='text-right p-2'><span className='mr-4'>+</span>MAS DETALLES</div>
+                    {
+                        specif.map((ele, i)=>(
+                            
+                            <div key={i} className='text-left p-2'><span className='mr-4'>✔</span>{ele.trim()}</div>
+                        ))
+                    }
+                    
+                    <div className='text-right p-2'><Link href={`${datasheet}`}><span className='mr-4'>+</span>MAS DETALLES</Link></div>
                 </div>
             </motion.div>
 

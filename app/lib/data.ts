@@ -12,7 +12,7 @@ export async function getProducts() {
     }
 }
 
-export async function getProductsVersionById(query: number) {
+export async function getProductsVersionByIdProduct(query: number) {
 
     try {
 
