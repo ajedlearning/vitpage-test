@@ -3,7 +3,17 @@ import { prisma } from '@/app/lib/prisma'
 export async function getProducts() {
 
     try {
-        const data = await prisma.products.findMany();
+        const data = await prisma.products.findMany(
+            {
+                where: {
+                    active: true,
+                },
+                orderBy:
+                    [
+                        { categoryId: "asc" }
+                    ]
+            }
+        );
 
         return data;
     } catch (error) {
@@ -46,16 +56,20 @@ export async function getProductsByCategory(query: number) {
     }
 }
 
-export async function getProductCategoriesById(params:number) {
+export async function getProductCategoriesById(params: number) {
     try {
         const data = await prisma.productsCategories.findFirst({
-            where :{
+            where: {
                 id: params
-            }
+            },
+            orderBy:
+                [
+                    { id: "asc" }
+                ]
         })
         return data;
     } catch (error) {
-        console.error('Database Error:', error )
+        console.error('Database Error:', error)
     }
 }
 
@@ -119,16 +133,16 @@ export async function getOperatingSystem() {
     try {
         const data = await prisma.operatingSystems.findMany(
             {
-                
+
                 where: {
                     active: true,
-                    
+
                 }
-                
-                
+
+
             }
         )
-         console.log(data)
+        console.log(data)
         return data;
 
 
@@ -136,12 +150,12 @@ export async function getOperatingSystem() {
         console.error('Data Error', error)
     }
 }
-export async function getTypeDriverByIdProdByIdOs(prodId : number, osId: number) {
+export async function getTypeDriverByIdProdByIdOs(prodId: number, osId: number) {
     try {
         const data = await prisma.productDrivers.findMany(
             {
                 include: {
-                    operatingSystems: { 
+                    operatingSystems: {
                         select: {
                             name: true
                         }
@@ -167,7 +181,7 @@ export async function getTypeDriverByIdProdByIdOs(prodId : number, osId: number)
                 where: {
                     active: true,
                     prodId,
-                    operatingSystemsId : osId 
+                    operatingSystemsId: osId
 
                 }
             }
