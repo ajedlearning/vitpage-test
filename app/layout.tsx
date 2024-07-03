@@ -21,11 +21,11 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${inter.className} antialiased`}>
         {/* <NavBar /> */}
-        <MainNavBar />
+        {/* <MainNavBar /> */}
         <main className="min-h-screen">
           {children}
         </main>
-        <Footer />
+        
 
 
       </body>

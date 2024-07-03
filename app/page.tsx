@@ -10,6 +10,8 @@ import InstitutionalSales from "@/app/components/InstitutionalSales";
 import Contact from "@/app/components/Contact";
 import BannerHomeSupport from "./components/BannerHomeSupport";
 import BannerHomeControllers from "./components/BannerHomeControllers";
+import MainNavBar from "./components/MainNavBar";
+import Footer from "./components/Footer";
 
 
 export default async function Home() {
@@ -18,7 +20,7 @@ export default async function Home() {
   return (
 
     <>
-
+      <MainNavBar/>
       <Carousel />
       <About />
       <Philosophy />
@@ -31,6 +33,7 @@ export default async function Home() {
       <BannerHomeControllers/>
       <InstitutionalSales />
       <Contact />
+      <Footer/>
 
     </>
 
