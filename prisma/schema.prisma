@@ -23,6 +23,15 @@ model ProductsCategories {
   createdAt DateTime   @default(now()) @db.Timestamp(6)
   updatedAt DateTime   @updatedAt
 }
+model Users {
+  id   Int    @id @default(autoincrement())
+  fullName String 
+  email String @unique
+  password String  
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
 
 // model ProductsDriversCategories {
 //   id   Int    @id @default(autoincrement())

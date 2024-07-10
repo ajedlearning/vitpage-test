@@ -1,5 +1,6 @@
 import { prisma } from '@/app/lib/prisma'
 
+
 export async function getProducts() {
 
     try {
@@ -194,6 +195,8 @@ export async function getTypeDriverByIdProdByIdOs(prodId: number, osId: number) 
         console.error('Data Error', error)
     }
 }
+
+
 
 
 
