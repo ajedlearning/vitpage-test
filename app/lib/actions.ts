@@ -1,49 +1,57 @@
 'use server'
-import { prisma } from '@/app/lib/prisma'
+// actions/createUser.ts
+import { prisma } from '@/app/lib/prisma';
 import { z } from 'zod';
-
+import bcrypt from 'bcrypt';
+import { revalidatePath } from 'next/cache';
 import { redirect } from 'next/navigation';
 
 const FormSchema = z.object({
-    id: z.string(),
-    fullName: z.string(),
-    email: z.string(),
-    password: z.string(),
-    active: z.boolean(),
+  fullName: z.string().min(1, "El nombre es requerido").trim(),
+  email: z.string().min(1, "El correo es requerido").email('Correo Inválido'),
+  password: z.string().min(8, "El password debe ser del al menos 8 carácteres").trim(),
+//   password2: z.string().min(8, "La contraseña debe ser del al menos 8 carácteres").trim(),
 });
-const CreateUser = FormSchema.omit({ id: true });
 
 export async function createUser(formData: FormData) {
+  const parsedData = FormSchema.safeParse({
+    fullName: formData.get('name') as string,
+    email: formData.get('email') as string,
+    password: formData.get('pass') as string,
+    // password2: formData.get('pass2') as string,
+  });
 
-    // validated two password match
-    if (formData.get('pass') !== formData.get('pass2')) {
-        throw new Error(" passwords don't match ");
-    }
+  if (!parsedData.success) {
+    const formattedErrors = parsedData.error.issues.map(issue => ({
+      path: issue.path.join('.'),
+      message: issue.message,
+    }));
+    return { error: formattedErrors };
+  }
 
-    const { fullName, email, password, active } = CreateUser.parse({
-        fullName: formData.get('name'),
-        email: formData.get('email'),
-        password: formData.get('pass'),
-        active: true,
+  const { fullName, email, password } = parsedData.data;
+  const pass2 = formData.get('pass2');
+  if (password !== pass2) {
+    return { error: [{ path: 'password2', message: "Los passwords no coinciden" }] };
+  }
+
+  const hashedPassword = await bcrypt.hash(password, 10);
+
+  try {
+    const user = await prisma.users.create({
+      data: {
+        fullName,
+        email,
+        password: hashedPassword,
+      },
     });
+    // return { success: true, message: 'User created successfully', user };
+} catch (error) {
+    return { error: [{ path: '', message: 'Database Error: Failed to Create User.' }] };
+}
 
-    try {
-        const query = await prisma.users.create(
-            {
-                data: {
-                    fullName,
-                    email,
-                    password,
-                    active
-                },
-            }
-        )
-        console.log(query);
-    } catch (error) {
-        return {
-            message: 'Database Error: Failed to Create User.',
-        };
-    }
+redirect('/');
+  
 
-    redirect('/auth/register');
+//   revalidatePath('/dashboard/invoices');
 }
