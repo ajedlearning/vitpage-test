@@ -1,0 +1,107 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model ProductsCategories {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  products Products[]
+  ProductDrivers ProductDrivers[]
+  categoryImage String
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+model Users {
+  id   Int    @id @default(autoincrement())
+  fullName String 
+  email String @unique
+  password String  
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+// model ProductsDriversCategories {
+//   id   Int    @id @default(autoincrement())
+//   name String @unique
+//   Products Products[]
+//   ProductDrivers ProductDrivers[]
+//   active    Boolean    @default(true)
+//   createdAt DateTime   @default(now()) @db.Timestamp(6)
+//   updatedAt DateTime   @updatedAt
+// }
+
+model ProductDrivers {
+  id Int @id @default(autoincrement())
+  operatingSystems OperatingSystems? @relation(fields: [operatingSystemsId], references: [id])
+  operatingSystemsId Int?
+  productsCategories ProductsCategories? @relation(fields: [prodCatId], references: [id])
+  prodCatId Int
+  // productsDriverCategories ProductsDriversCategories? @relation(fields: [prodDriverCatId], references: [id])
+  // prodDriverCatId Int
+  products Products? @relation(fields: [prodId], references: [id])
+  prodId Int
+  driverTypes DriverTypes? @relation(fields: [typeDriverId], references: [id])
+  typeDriverId Int
+  location String
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model DriverTypes {
+  id Int @id @default(autoincrement())
+  name String
+  productDrivers ProductDrivers[]
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt 
+}
+
+model Products {
+  id       Int    @id @default(autoincrement())
+  model    String
+  category ProductsCategories?   @relation(fields: [categoryId], references: [id])
+  categoryId Int?
+  productDrivers ProductDrivers[]
+  productsVersions ProductsVersions[]
+  productImage String   @default("default-image.jpg") // Valor predeterminado
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model OperatingSystems {
+  id       Int    @id @default(autoincrement())
+  name     String 
+  productsDriver ProductDrivers[]
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+model ProductsVersions {
+  id   Int    @id @default(autoincrement())
+  name String @unique
+  product Products? @relation(fields: [productId], references: [id])
+  productId Int?
+  espeficications String @default("procesador, discoduro, memoria ram")
+  datasheetsLocation String @default("datasheetdefault.pdf")
+  active    Boolean    @default(true)
+  createdAt DateTime   @default(now()) @db.Timestamp(6)
+  updatedAt DateTime   @updatedAt
+}
+
+
