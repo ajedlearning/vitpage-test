@@ -14,7 +14,6 @@ const publicRoutes =[
     "/ventas-institucionales",
     "/contacto",
     "/login",
-    "/register",   
     
 ]
 export default middleware((req)=>{

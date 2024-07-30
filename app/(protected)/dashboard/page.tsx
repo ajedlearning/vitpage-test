@@ -17,9 +17,10 @@ export default async function Page() {
 
   return (
     <div className="container">
-      <pre>{JSON.stringify(session, null, 2)}</pre>
-      <hr />
-      <LogoutButton />
+      {/* <pre>{JSON.stringify(session, null, 2)}</pre> */}
+
+      Dashboard
+      
     </div>
   )
 }

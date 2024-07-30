@@ -1,3 +1,4 @@
+import MenuBar from "@/components/MenuBar";
 import SideNav from "@/components/SideNav";
 
 
@@ -6,16 +7,13 @@ function layout({ children }: Readonly<{
 }>) {
     return (
         <div className="w-full border border-green-950">
-            <header className="w-full h-20 border border-red-500">
-                header
+            <header className="w-full  h-20 border border-slate-600">
+                <nav className="p-4"><MenuBar /></nav>
             </header>
-            <main className="flex w-full min-h-screen bg-yellow-400">
-                <nav className="w-[30%] p-4 bg-slate-600">
-                    <SideNav />
-                </nav>
-                <section className="p-4">
+            <main className="w-full min-h-screen  p-4">
+               
                     {children}
-                </section>
+               
             </main>
         </div>
     )

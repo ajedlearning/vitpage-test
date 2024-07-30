@@ -187,12 +187,93 @@ export async function getTypeDriverByIdProdByIdOs(prodId: number, osId: number) 
                 }
             }
         )
-        console.log(data)
+        // console.log(data)
         return data;
 
 
     } catch (error) {
         console.error('Data Error', error)
+    }
+}
+
+export async function getUsers() {
+
+    try {
+        const users = await prisma.users.findMany();
+        return users;
+    } catch (error) {
+        console.error('Data Error', error)
+
+    }
+
+}
+
+const ITEMS_PER_PAGE = 6;
+export async function fetchFilteredUsers(query: string,
+    currentPage: number,) {
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    try {
+        const user = await prisma.users.findMany({
+            where: {
+                OR: [
+                    {
+                        name: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    },
+                    {
+                        email: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    }
+                ]
+            },
+            orderBy: {
+                createdAt: 'desc', // Ordenar de manera descendente
+            },
+            skip: offset,
+            take: ITEMS_PER_PAGE,
+
+        })
+        return user;
+    } catch (error) {
+        console.error('Data Error', error)
+
+    }
+}
+
+export async function fetchUserPages(query: string) {
+    
+    try {
+        const count = await prisma.users.count({
+            where: {
+                OR: [
+                    {
+                        name: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    },
+                    {
+                        email: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    }
+                ]
+            },
+         
+            
+        })
+
+        const totalPages = Math.ceil(count / ITEMS_PER_PAGE) ;
+        // console.log(totalPages)
+        return totalPages;
+    } catch (error) {
+        console.error('Data Error', error)
+
     }
 }
 
