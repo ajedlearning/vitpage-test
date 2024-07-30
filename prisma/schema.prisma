@@ -14,102 +14,98 @@ datasource db {
 }
 
 model ProductsCategories {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-  products Products[]
+  id             String           @id @default(cuid())
+  name           String           @unique
+  products       Products[]
   ProductDrivers ProductDrivers[]
-  categoryImage String
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
+  categoryImage  String
+  active         Boolean          @default(true)
+  createdAt      DateTime         @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime         @updatedAt
 }
 
 model Users {
-  id            String          @id @default(cuid())
+  id            String    @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String    @unique
   emailVerified DateTime?
   image         String?
   password      String?
-  role          Role  @default(user)
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+  role          Role      @default(user)
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
 }
 
 enum Role {
   user
   admin
-} 
+}
 
 model VerificationToken {
-  identifier String @unique
+  identifier String   @unique
   token      String
   expires    DateTime
- 
+
   @@id([identifier])
-} 
-
-
+}
 
 model ProductDrivers {
-  id Int @id @default(autoincrement())
-  operatingSystems OperatingSystems? @relation(fields: [operatingSystemsId], references: [id])
-  operatingSystemsId Int?
+  id                 String              @id @default(cuid())
+  operatingSystems   OperatingSystems?   @relation(fields: [operatingSystemsId], references: [id])
+  operatingSystemsId String?
   productsCategories ProductsCategories? @relation(fields: [prodCatId], references: [id])
-  prodCatId Int
+  prodCatId          String
   // productsDriverCategories ProductsDriversCategories? @relation(fields: [prodDriverCatId], references: [id])
   // prodDriverCatId Int
-  products Products? @relation(fields: [prodId], references: [id])
-  prodId Int
-  driverTypes DriverTypes? @relation(fields: [typeDriverId], references: [id])
-  typeDriverId Int
-  location String
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
+  products           Products?           @relation(fields: [prodId], references: [id])
+  prodId             String
+  driverTypes        DriverTypes?        @relation(fields: [typeDriverId], references: [id])
+  typeDriverId       String
+  location           String
+  active             Boolean             @default(true)
+  createdAt          DateTime            @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime            @updatedAt
 }
 
 model DriverTypes {
-  id Int @id @default(autoincrement())
-  name String
+  id             String           @id @default(cuid())
+  name           String
   productDrivers ProductDrivers[]
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt 
+  active         Boolean          @default(true)
+  createdAt      DateTime         @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime         @updatedAt
 }
 
 model Products {
-  id       Int    @id @default(autoincrement())
-  model    String
-  category ProductsCategories?   @relation(fields: [categoryId], references: [id])
-  categoryId Int?
-  productDrivers ProductDrivers[]
+  id               String              @id @default(cuid())
+  model            String
+  category         ProductsCategories? @relation(fields: [categoryId], references: [id])
+  categoryId       String?
+  productDrivers   ProductDrivers[]
   productsVersions ProductsVersions[]
-  productImage String   @default("default-image.jpg") // Valor predeterminado
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
+  productImage     String              @default("default-image.jpg") // Valor predeterminado
+  active           Boolean             @default(true)
+  createdAt        DateTime            @default(now()) @db.Timestamp(6)
+  updatedAt        DateTime            @updatedAt
 }
 
 model OperatingSystems {
-  id       Int    @id @default(autoincrement())
-  name     String 
+  id             String           @id @default(cuid())
+  name           String
   productsDriver ProductDrivers[]
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
+  active         Boolean          @default(true)
+  createdAt      DateTime         @default(now()) @db.Timestamp(6)
+  updatedAt      DateTime         @updatedAt
 }
 
 model ProductsVersions {
-  id   Int    @id @default(autoincrement())
-  name String @unique
-  product Products? @relation(fields: [productId], references: [id])
-  productId Int?
-  espeficications String @default("procesador, discoduro, memoria ram")
-  datasheetsLocation String @default("datasheetdefault.pdf")
-  active    Boolean    @default(true)
-  createdAt DateTime   @default(now()) @db.Timestamp(6)
-  updatedAt DateTime   @updatedAt
+  id            String          @id @default(cuid())
+  name               String    @unique
+  product            Products? @relation(fields: [productId], references: [id])
+  productId          String?
+  espeficications    String    @default("procesador, discoduro, memoria ram")
+  datasheetsLocation String    @default("datasheetdefault.pdf")
+  active             Boolean   @default(true)
+  createdAt          DateTime  @default(now()) @db.Timestamp(6)
+  updatedAt          DateTime  @updatedAt
 }
-
-

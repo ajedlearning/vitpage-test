@@ -19,7 +19,7 @@ type ProductDriverWithRelations = {
     // incluye otros campos y relaciones necesarias
 };
 
-const ListTypeDrivers = ({ idProd, os, idOs, }: { idProd: number, idOs: number | null, os: string | undefined }) => {
+const ListTypeDrivers = ({ idProd, os, idOs, }: { idProd: string, idOs: string | null, os: string | undefined }) => {
     const [isOpen, setIsOpen] = useState(false);
     const openWindow = () => {
         setIsOpen(!isOpen)

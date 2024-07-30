@@ -2,7 +2,7 @@ import ListTypeDrivers from './ListTypeDrivers'
 import { getOperatingSystem } from '@/app/lib/data'
 
 
-const ProductDrivers = async ({product, idProd}:{product: string, idProd: number}) => {
+const ProductDrivers = async ({product, idProd}:{product: string, idProd: string}) => {
     // const driverProducts = await getDriverProductsByIdProd(idProd);
     const operatingSystem = await getOperatingSystem();
     // const driverProducts2 = await getDriverProductsByIdProd(idProd);

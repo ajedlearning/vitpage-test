@@ -1,7 +1,7 @@
 import { getProductsVersionByIdProduct } from '@/app/lib/data'
 import ProductsVersion from './ProductsVersion'
 
-export async function GroupVersions({ id }: { id: number }) {
+export async function GroupVersions({ id }: { id: string }) {
     const versions = await getProductsVersionByIdProduct(id)
     return (
         <>

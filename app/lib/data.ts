@@ -23,7 +23,7 @@ export async function getProducts() {
     }
 }
 
-export async function getProductsVersionByIdProduct(query: number) {
+export async function getProductsVersionByIdProduct(query: string) {
 
     try {
 
@@ -42,7 +42,7 @@ export async function getProductsVersionByIdProduct(query: number) {
 }
 
 
-export async function getProductsByCategory(query: number) {
+export async function getProductsByCategory(query: string) {
     try {
         const data = await prisma.products.findMany({
             where: {
@@ -57,7 +57,7 @@ export async function getProductsByCategory(query: number) {
     }
 }
 
-export async function getProductCategoriesById(params: number) {
+export async function getProductCategoriesById(params: string) {
     try {
         const data = await prisma.productsCategories.findFirst({
             where: {
@@ -151,7 +151,7 @@ export async function getOperatingSystem() {
         console.error('Data Error', error)
     }
 }
-export async function getTypeDriverByIdProdByIdOs(prodId: number, osId: number) {
+export async function getTypeDriverByIdProdByIdOs(prodId: string, osId: string) {
     try {
         const data = await prisma.productDrivers.findMany(
             {

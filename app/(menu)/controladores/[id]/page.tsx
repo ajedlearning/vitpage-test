@@ -3,8 +3,8 @@ import {getProductCategoriesById, getProductsByCategory} from '@/app/lib/data'
 import Image from "next/image";
 
 const page = async ({ params }: { params: { id: string } }) => {
-    const products = await getProductsByCategory(parseInt(params.id));
-    const category = await getProductCategoriesById(parseInt(params.id));
+    const products = await getProductsByCategory(params.id);
+    const category = await getProductCategoriesById(params.id);
     return (
         <>
             <div className="">
