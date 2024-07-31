@@ -19,13 +19,19 @@ const publicRoutes =[
 export default middleware((req)=>{
    const {nextUrl, auth} = req;
    const isLoggedIn = !!auth?.user
-   if (!publicRoutes.includes(nextUrl.pathname) && !isLoggedIn) {
-    return NextResponse.redirect(new URL("login", nextUrl))
-    }
+   //adaptation
+   const { pathname } = nextUrl;
 
-    return NextResponse.next();
-   
-})
+   // Check if the route is public or if it matches the pattern for /controladores with parameters
+   const isPublicRoute = publicRoutes.includes(pathname) || pathname.startsWith('/controladores') || pathname.startsWith('/productos');
+
+   if (!isPublicRoute && !isLoggedIn) {
+    return NextResponse.redirect(new URL("/login", nextUrl));
+}
+
+return NextResponse.next();
+});
+
 
 export const config = {
     matcher: ['/((?!.*\\..*|_next).*)', '/', '/(api|trpc)(.*)'],
