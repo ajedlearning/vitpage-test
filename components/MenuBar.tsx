@@ -27,9 +27,9 @@ const MenuBar = () => {
                 <MenubarTrigger>Usuarios</MenubarTrigger>
                 <MenubarContent>
                     <MenubarItem>
-                        <Link href={'/usuarios'}>Listado de Usuarios</Link>
+                        <Link href={'/users'}>Listado de Usuarios</Link>
                     </MenubarItem>
-                    <MenubarItem><Link href={'/register'}>Crear usuario</Link>
+                    <MenubarItem><Link href={'/users/add'}>Crear usuario</Link>
                     </MenubarItem>
                     <MenubarSeparator />
 
@@ -40,9 +40,10 @@ const MenuBar = () => {
                 <MenubarTrigger>Productos</MenubarTrigger>
                 <MenubarContent>
                     <MenubarItem>
-                        <Link href={'/lista-productos'}>Listado de Productos</Link>
+                        <Link href={'/vitproducts'}>Listado de Productos</Link>
                     </MenubarItem>
-                    <MenubarItem>Crear Producto
+                    <MenubarItem>
+                    <Link href={'/vitproducts/add'}>Crear Producto</Link>
 
                     </MenubarItem>
                     <MenubarSeparator />

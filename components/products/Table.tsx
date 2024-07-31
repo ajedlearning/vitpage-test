@@ -1,16 +1,16 @@
 import { UpdateUser, DeleteUser, CreateUser } from '@/components/users/buttons';
-import { fetchFilteredUsers } from '@/app/lib/data';
+import { fetchFilteredProducts } from '@/app/lib/data-products';
 
 
 
-async function UsersTable({
+async function ProductsTable({
   query,
   currentPage,
 }: {
   query: string;
   currentPage: number;
 }) {
-  const users = await fetchFilteredUsers(query, currentPage)
+  const products = await fetchFilteredProducts(query, currentPage)
   return (
     <div className="w-full">
  
@@ -23,13 +23,13 @@ async function UsersTable({
                 <thead className="rounded-md bg-gray-50 text-left text-sm font-normal">
                   <tr>
                     <th scope="col" className="px-4 py-5 font-medium sm:pl-6">
-                      Nombre
+                      Modelo
                     </th>
                     <th scope="col" className="px-3 py-5 font-medium">
-                      Email
+                      Categoría
                     </th>
                     <th scope="col" className="px-3 py-5 font-medium">
-                      Rol
+                      Imagen
                     </th>
                     <th scope="col" className="relative py-3 pl-6 pr-3">
                       <span className="sr-only">Edit</span>
@@ -39,21 +39,21 @@ async function UsersTable({
                 </thead>
 
                 <tbody className="divide-y divide-gray-200 text-gray-900">
-                  {users?.map((user) => (
-                    <tr key={user.id} className="group">
+                  {products?.map((product) => (
+                    <tr key={product.id} className="group">
                       <td className="whitespace-nowrap bg-white py-5 pl-4 pr-3 text-sm text-black group-first-of-type:rounded-md group-last-of-type:rounded-md sm:pl-6">
-                        {user.name}
+                        {product.model}
                       </td>
                       <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-                        {user.email}
+                        {product.category?.name}
                       </td>
                       <td className="whitespace-nowrap bg-white px-4 py-5 text-sm">
-                        {user.role}
+                        {product.productImage}
                       </td>
                       <td className="whitespace-nowrap bg-white py-3 pl-6 pr-3">
                         <div className="flex justify-end gap-3">
-                          <UpdateUser id={user.id} />
-                          <DeleteUser id={user.id} />
+                          <UpdateUser id={product.id} />
+                          <DeleteUser id={product.id} />
                         </div>
                       </td>
 
@@ -72,4 +72,4 @@ async function UsersTable({
   )
 }
 
-export default UsersTable
+export default ProductsTable
