@@ -23,6 +23,10 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { addProduct, uploadFile } from "@/app/lib/actions-products"
+import { useState } from "react"
+import { useRouter } from 'next/navigation'
+
 
 
 
@@ -34,15 +38,44 @@ const FormAddProducts = () => {
         defaultValues: {
             model: "",
             category: "",
-            image:""
+            image: null
         },
     })
 
+    const [error, setError] = useState<string | null>(null)
+    const router = useRouter();
+
+
     // 2. Define a submit handler.
-    function onSubmit(values: z.infer<typeof registerProducstSchema>) {
+    async function onSubmit(values: z.infer<typeof registerProducstSchema>) {
         // Do something with the form values.
         // ✅ This will be type-safe and validated.
-        console.log(values)
+        const formData = new FormData()
+        formData.append("model", values.model)
+        formData.append("category", values.category)
+
+        // if there is a image selected, add to formData
+        if (values.image && values.image[0]) {
+            formData.append("image", values.image[0]) // Añade la imagen a los datos del formulario
+        }
+
+        await addProduct(formData);
+
+        const response = await addProduct(formData);
+        if (response?.error) {
+            setError(response.error)
+        } else {
+            router.push("/users")
+        }
+
+
+        // console.log("Formulario enviado con los siguientes datos:")
+        // console.log({
+        //    name : formData.get('model'),
+        //    category : formData.get('category'),
+        //    image : formData.get('image'),
+        // })
+        // console.log(formData)
     }
 
     return (
@@ -80,9 +113,9 @@ const FormAddProducts = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                <SelectItem value="ds">m@example.com</SelectItem>
-                                                <SelectItem value="m@google.com">m@google.com</SelectItem>
-                                                <SelectItem value="m@support.com">m@support.com</SelectItem>
+                                                <SelectItem value="clz93y56v0001n2rs80rnjqry">Escritorio</SelectItem>
+                                                <SelectItem value="clz93znw80002n2rs62eelmf7">Tabletas</SelectItem>
+                                                <SelectItem value="clz93v8h90000n2rsprgveh2r">Portatiles</SelectItem>
                                             </SelectContent>
                                         </Select>
 
@@ -99,7 +132,7 @@ const FormAddProducts = () => {
                                     <FormItem>
                                         <FormLabel>Imagen</FormLabel>
                                         <FormControl>
-                                            <Input type="file" placeholder="Imagen" {...field} />
+                                            <Input type="file" id="image" placeholder="Imagen" onChange={(e) => field.onChange(e.target.files)} />
                                         </FormControl>
                                         <FormDescription>Opcional</FormDescription>
 

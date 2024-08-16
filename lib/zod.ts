@@ -1,4 +1,4 @@
-import { object, optional, string } from "zod"
+import { object, optional, string, any } from "zod"
 
 export const loginSchema = object({
   email: string()
@@ -27,6 +27,6 @@ export const registerProducstSchema = object({
     .min(1, "El modelo es requerido"),
   category: string()
     .min(1, "La Categoría es requerida"),
-  image: optional(string()),
+    image:  any().optional(),
 
 })

@@ -4,7 +4,7 @@ import { getProductsByCategory } from "@/app/lib/data"
 
 const page = async ({ params }: { params: { id: string } }) => {
 
-  const productsByCatg = await getProductsByCategory(parseInt(params.id))
+  const productsByCatg = await getProductsByCategory(params.id)
   return (
 
    <>
