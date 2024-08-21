@@ -59,13 +59,11 @@ const FormAddProducts = () => {
             formData.append("image", values.image[0]) // Añade la imagen a los datos del formulario
         }
 
-        await addProduct(formData);
-
         const response = await addProduct(formData);
         if (response?.error) {
             setError(response.error)
         } else {
-            router.push("/users")
+            router.push("/vitproducts")
         }
 
 
