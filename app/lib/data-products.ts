@@ -59,6 +59,44 @@ export async function fetchFilteredProducts(query: string,
 
     }
 }
+
+export async function fetchFilteredVersions(query: string,
+    currentPage: number,) {
+    const offset = (currentPage - 1) * ITEMS_PER_PAGE;
+    try {
+        const user = await prisma.productsVersions.findMany({
+            where: {
+                OR: [
+                    {
+                        name: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    },
+
+                ]
+            },
+            include: {
+                product: {
+                    select: {
+                        model: true,
+                    }
+                }
+            },
+            orderBy: {
+                createdAt: 'desc', // Ordenar de manera descendente
+            },
+            skip: offset,
+            take: ITEMS_PER_PAGE,
+
+        })
+        return user;
+    } catch (error) {
+        console.error('Data Error', error)
+
+    }
+}
+
 export async function fetchProductsPages(query: string) {
 
     try {
@@ -67,6 +105,33 @@ export async function fetchProductsPages(query: string) {
                 OR: [
                     {
                         model: {
+                            contains: query,
+                            mode: 'insensitive',
+                        },
+                    },
+
+                ]
+            },
+
+
+        })
+
+        const totalPages = Math.ceil(count / ITEMS_PER_PAGE);
+        // console.log(totalPages)
+        return totalPages;
+    } catch (error) {
+        console.error('Data Error', error)
+
+    }
+}
+export async function fetchVersionsPages(query: string) {
+
+    try {
+        const count = await prisma.productsVersions.count({
+            where: {
+                OR: [
+                    {
+                        name: {
                             contains: query,
                             mode: 'insensitive',
                         },
