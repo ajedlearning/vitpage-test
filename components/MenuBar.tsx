@@ -44,7 +44,9 @@ const MenuBar = () => {
                     </MenubarItem>
                     <MenubarItem>
                     <Link href={'/vitproducts/add'}>Crear Producto</Link>
-
+                    </MenubarItem>
+                    <MenubarItem>
+                    <Link href={'/vitproducts/add'}>Versiones de Productos</Link>
                     </MenubarItem>
                     <MenubarSeparator />
 
