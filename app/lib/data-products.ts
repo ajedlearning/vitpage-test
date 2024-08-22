@@ -87,3 +87,18 @@ export async function fetchProductsPages(query: string) {
     }
 }
 
+
+export async function fetchCategories() {
+    try {
+        const categories = await prisma.productsCategories.findMany({
+            where: {
+                active: true
+            }
+        });
+
+        return categories;
+    } catch (error) {
+        console.error('Data Error', error)
+    }
+}
+

@@ -40,12 +40,9 @@ export async function uploadFile(formdata: FormData) {
 
 export async function addProduct(formData: FormData) {
   
-  const uploadedImage = await uploadFile(formData)
+  const uploadedImage = await uploadFile(formData);
 
-  try {
-    
-
-   
+  try { 
 
     const product = await prisma.products.create({
       data: {

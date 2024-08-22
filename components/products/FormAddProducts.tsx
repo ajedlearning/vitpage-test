@@ -26,12 +26,13 @@ import {
 import { addProduct, uploadFile } from "@/app/lib/actions-products"
 import { useState } from "react"
 import { useRouter } from 'next/navigation'
+import { ProductsCategories } from "@prisma/client"
 
 
 
 
 
-const FormAddProducts = () => {
+const FormAddProducts = ({ categories }: { categories: ProductsCategories[] | undefined }) => {
     // 1. Define your form.
     const form = useForm<z.infer<typeof registerProducstSchema>>({
         resolver: zodResolver(registerProducstSchema),
@@ -111,9 +112,12 @@ const FormAddProducts = () => {
                                                 </SelectTrigger>
                                             </FormControl>
                                             <SelectContent>
-                                                <SelectItem value="clz93y56v0001n2rs80rnjqry">Escritorio</SelectItem>
-                                                <SelectItem value="clz93znw80002n2rs62eelmf7">Tabletas</SelectItem>
-                                                <SelectItem value="clz93v8h90000n2rsprgveh2r">Portatiles</SelectItem>
+                                                {
+                                                    categories?.map((category) => (
+                                                        <SelectItem key={category.id} value={category.id}>{category.name}</SelectItem>
+                                                    ))
+                                                }
+
                                             </SelectContent>
                                         </Select>
 
