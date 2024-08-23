@@ -30,3 +30,14 @@ export const registerProducstSchema = object({
     image:  any().optional(),
 
 })
+export const registerVersionSchema = object({
+  version: string()
+    .min(1, "La version es requerida"),
+  specifications: string()
+    .min(1, "Las especificaciones son requeridas")
+    .max(90, "Solo se permiten 90 caracteres"),
+  product: string()
+    .min(1, "Debe selecionar un equipo"),
+    dataSheet:  any().optional(),
+
+})

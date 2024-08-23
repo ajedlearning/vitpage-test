@@ -6,7 +6,7 @@ export async function GroupVersions({ id }: { id: string }) {
     return (
         <>
         {versions?.map((version)=>(
-            <ProductsVersion nameVersion={version.name} datasheet= {version.datasheetsLocation} especifications = {version.espeficications} key={version.name} />
+            <ProductsVersion idProduct = {id} nameVersion={version.name} datasheet= {version.datasheetsLocation} especifications = {version.espeficications} key={version.id} />
         ))}
         </>
     )

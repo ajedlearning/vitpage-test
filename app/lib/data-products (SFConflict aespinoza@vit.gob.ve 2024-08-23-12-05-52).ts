@@ -21,29 +21,26 @@ export async function fetchProducts(query: string,
         console.log('Data Error', error)
     }
 }
-export async function fetchProductsById(id: string) {
-    try {
-        const products = await prisma.products.findUnique(
-            {
-                where: {
-                    active: true,
-                    id
-                }
-            }
-
-        );
-
-        return products
-    } catch (error) {
-        console.log('Data Error', error)
-    }
-}
 
 export async function fetchAllProducts() {
     try {
         const products = await prisma.products.findMany({
             where: {
                 active: true
+            }
+        })
+        return products;
+    } catch (error) {
+        console.error('Database error', error)
+    }
+}
+
+export async function fetchProductsById(id: string) {
+    try {
+        const products = await prisma.products.findUnique({
+            where: {
+                active: true,
+                id
             }
         })
         return products;

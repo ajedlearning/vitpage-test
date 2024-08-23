@@ -1,6 +1,5 @@
 import { lusitana } from '@/app/fonts'
-import { CreateProduct } from '@/components/products/buttons'
-import ProductsTable from '@/components/products/Table'
+import { CreateVersion } from '@/components/products/buttons'
 import Search from '@/components/Search'
 import { fetchVersionsPages } from '@/app/lib/data-products'
 import Pagination from '@/components/users/Pagination'
@@ -27,7 +26,7 @@ const page = async ({
       <div className="mt-4 flex items-center justify-between gap-2 md:mt-8">
         <Search placeholder="Buscar productos..." />
 
-        <CreateProduct />
+        <CreateVersion />
 
       </div>
       {/* <Suspense key={query + currentPage} fallback={<InvoicesTableSkeleton />}> */}

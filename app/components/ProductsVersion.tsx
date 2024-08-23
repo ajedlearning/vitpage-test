@@ -6,7 +6,7 @@ import Link from 'next/link';
 
 
 
-const ProductsVersion = ({ nameVersion, especifications, datasheet }: { nameVersion: string, especifications: string, datasheet: string }) => {
+const ProductsVersion = ({ nameVersion, especifications, datasheet, idProduct }: { nameVersion: string, especifications: string, datasheet: string, idProduct: string }) => {
     const [isOpen, setIsOpen] = useState(false);
     const openWindow = () => {
         setIsOpen(!isOpen)
@@ -31,7 +31,7 @@ const ProductsVersion = ({ nameVersion, especifications, datasheet }: { nameVers
                         ))
                     }
                     
-                    <div className='text-right p-2'><Link href={`${datasheet}`}><span className='mr-4'>+</span>MAS DETALLES</Link></div>
+                    <div className='text-right p-2'><Link href={`/detalles-producto/${idProduct}`}><span className='mr-4'>+</span>MAS DETALLES</Link></div>
                 </div>
             </motion.div>
 
