@@ -4,8 +4,6 @@ export async function GET(request: Request,  { params }: { params: { idProd: str
     
 
     try {
-        const prodId = parseInt(params.idProd ?? '')
-        const osId = parseInt(params.idOs ?? '')
         const data = await prisma.productDrivers.findMany({
             include: {
              
@@ -18,8 +16,8 @@ export async function GET(request: Request,  { params }: { params: { idProd: str
 
             },
             where: {
-                prodId: prodId,
-                operatingSystemsId: osId
+                prodId: params.idProd,
+                operatingSystemsId: params.idOs
             },
         })
         // const data = await res.json()
