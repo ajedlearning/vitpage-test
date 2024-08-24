@@ -15,6 +15,7 @@ const publicRoutes =[
     "/contacto",
     "/login",
     "/users/add",
+    "/detalles-producto"
     
 ]
 export default middleware((req)=>{
@@ -24,7 +25,7 @@ export default middleware((req)=>{
    const { pathname } = nextUrl;
 
    // Check if the route is public or if it matches the pattern for /controladores with parameters
-   const isPublicRoute = publicRoutes.includes(pathname) || pathname.startsWith('/controladores') || pathname.startsWith('/productos');
+   const isPublicRoute = publicRoutes.includes(pathname) || pathname.startsWith('/controladores') || pathname.startsWith('/productos') || pathname.startsWith('/detalles-producto');
 
    if (!isPublicRoute && !isLoggedIn) {
     return NextResponse.redirect(new URL("/login", nextUrl));
